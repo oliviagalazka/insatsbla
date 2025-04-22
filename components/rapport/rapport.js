@@ -29,7 +29,7 @@ function renderRapport() {
       </div>
 
       <div class="inputDiv"> 
-        <p>Var befann sig förövaren när du såg hen?</p>
+        <p>Vad kastade förövaren ifrån sig?</p>
         <input type="text" placeholder="Skriv här">
       </div>
 
