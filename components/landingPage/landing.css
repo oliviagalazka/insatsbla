@@ -1,0 +1,66 @@
+body{
+  background-color: #021C35;
+  margin:16px;
+  background-image: url('../../Grafisk\ profil/copBackground.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 32px;
+}
+
+#landingH1, #landingH2, .landingButton p{
+  font-family: Helvetica;
+  color:white;
+}
+
+#landingH1{
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+#landingH2{
+  font-size:14px;
+  margin-bottom: 8px;
+}
+
+.landingButton{
+  background-color: #1D466C;
+  background: linear-gradient(90deg,rgba(38, 95, 149, 1) 0%, rgba(29, 70, 108, 1) 100%);
+  padding: 16px;
+  margin-bottom:16px;
+  border-radius:4px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:20px;
+}
+
+.locked{
+  background: RGBA(29,70, 106, 0.7);
+}
+
+.landingContainer{
+  margin-top:32px;
+}
+
+.landingButton p{
+  margin:0;
+  padding:0;
+}
+
+.locked p{
+  filter:blur(2px);
+}
+
+.done{
+  background: #5594ED;
+}
+
+svg{
+  margin:0;
+  padding:0;
+}
+
+.unlocked svg{
+  display:none;
+}
