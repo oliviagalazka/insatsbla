@@ -1,0 +1,144 @@
+body {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "goldman-regular";
+}
+
+.device-wrapper {
+    position: relative;
+    /* perspective: 1000px; */
+
+    background-color: #2C2C2C;
+    width: 285px;
+    height: 534px;
+    border-radius: 25px;
+}
+
+.device {
+    background: #2f2f2f;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #000;
+    /* width: 300px; */
+    padding: 28px;
+    margin: 20px;
+
+    box-shadow: inset 0px 4px 10px 0px rgba(225, 222, 222, 0.25);
+
+    width: 260px;
+    height: 520px;
+
+    position: relative;
+
+}
+
+.mic-container {
+    margin: 24px 0px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.mic {
+    background-color: #363636;
+    border: 3px solid #383838;
+    border-radius: 20px;
+    padding: 16px;
+
+    box-shadow: inset 0px 2px 5px rgba(231, 227, 227, 0.25);
+}
+
+.screen {
+    background: radial-gradient(circle, #5a9bf6, #2a4b8d);
+    color: black;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.zone {
+    font-size: 16px;
+    font-family: goldman-bold;
+}
+
+.status,
+.incident {
+    margin: 5px 0;
+
+    font-size: 12px;
+    font-family: goldman-regular;
+}
+
+.info-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+.keypad {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    background: #3e3e3e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.green {
+    background-color: #2ecc71;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.label {
+    text-align: center;
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 24px;
+}
+
+/* Antenn */
+.antenna {
+    position: absolute;
+    top: -30px;
+    left: 80px;
+    width: 30px;
+    height: 30px;
+    background: #555;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Sidoknapp */
+.side-button {
+    position: absolute;
+    right: -4px;
+    top: 120px;
+    width: 10px;
+    height: 72px;
+    background: #444;
+    border-radius: 4px;
+    box-shadow: inset -1px 1px 3px rgba(0, 0, 0, 0.5);
+}
