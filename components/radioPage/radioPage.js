@@ -9,6 +9,7 @@ function renderRadioPage(parent) {
                                 <div id='side-button'></div>
 
                                 <div id='radio-body'>
+                                <audio id="radio-audio" src="./components/radioPage/radio-glitch-sound-292597(1).mp3" loop></audio>
 
                                     <div id='radio'>
                                     
@@ -67,6 +68,17 @@ function renderRadioPage(parent) {
                                 
                             </div>
     `;
+
+    document.addEventListener('click', () => {
+        const audio = document.getElementById('radio-audio');
+        audio.play().catch(e => console.warn("Försökte spela ljud, men fick:", e));
+    }, { once: true }); // Bara första klicket
+
+    const greenBtn = document.querySelector('.btn'); // använd rätt selektor!
+    greenBtn.addEventListener('click', () => {
+        const audio = document.getElementById('radio-audio');
+        audio.pause();
+    });
 }
 
 
