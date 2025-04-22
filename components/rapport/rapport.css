@@ -1,8 +1,30 @@
+body{
+  margin:16px;
+}
+
+H1{
+  font-size: 20px;
+  margin-bottom: 16px;
+  font-family: Helvetica;
+}
+
+H2{
+  font-size:14px;
+  margin-bottom: 8px;
+  font-family: Helvetica;
+}
+
+input, p{
+  font-family: Helvetica;
+  font-size:12px;
+}
+
 .inputDiv{
   border-top:1px solid black;
   border-right:1px solid black;
   border-left:1px solid black;
   padding:8px;
+  margin:0px;
   display:flex;
   flex-direction:column;
   flex-grow:1;
@@ -27,3 +49,27 @@
 .rapportDiv div:last-child{
   border-bottom:1px solid black;
 }
+
+.rapportInfo{
+  display:flex;
+  justify-content: space-between;
+  margin-bottom:28px;
+}
+
+.rapportInfo img{
+  width:55px;
+  height:77px;
+}
+
+.rapportText{
+  text-align:end;
+}
+
+.rapportText h1{
+  margin-bottom:8px;
+}
+
+.rapportText p{
+  margin:0px 0px 4px 0px;
+}
+
