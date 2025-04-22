@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "goldman-regular";
+    src: url(./fonts/Goldman/Goldman-Regular.ttf);
+}
+
+@font-face {
+    font-family: "goldman-bold";
+    src: url(./fonts/Goldman/Goldman-Bold.ttf);
+}
+
+:root {}
