@@ -1,6 +1,6 @@
-function renderRapport() {
-  //ändra get elementbyId grejen
-  document.getElementById('app').innerHTML = `
+function renderRapport(parent) {
+  const wrapper = document.querySelector(parent);
+  container.innerHTML = `
     <div class="rapportInfo">
       <img src="../../media/pictures/rapportImg.png" alt="Polisens emblem">
       <div class="rapportText">
