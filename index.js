@@ -1,1 +1,1 @@
-renderRadioPage('body');
+renderbikeVideoPage('body');
