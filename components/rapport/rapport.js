@@ -25,7 +25,7 @@ function renderRapport(parent) {
       </div>
 
       <div class="inputDiv">
-        <p>Bar förövaren på något?</p>
+        <p>Vad bar förövaren på för något?</p>
         <input type="text">
       </div>
 
