@@ -1,5 +1,6 @@
 function renderNav() {
-  document.getElementById('app').innerHTML = `
+  const wrapper = document.querySelector(parent)
+  container.innerHTML = `
     <div class="navDiv">
       <h2>INSATS <b>BLÅ</b></h2>
     </div>
