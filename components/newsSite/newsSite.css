@@ -1,0 +1,32 @@
+.newsTxt{
+  width:288.89px;
+  height:147px;
+}
+
+img{
+  width:288.89px;
+  height:147px;
+}
+
+.newsNav{
+  display:flex;
+  justify-content: space-between;
+}
+
+.notis{
+  display:flex;
+  padding:0px;
+}
+
+.notis p{
+  padding: 8px;
+  text-align:center;
+  box-shadow: 7px 8px 16px -1px rgba(168,168,168,1);
+}
+
+.notis .red{
+  background-color:red;
+  color:white;
+  min-width:74px;
+  font-weight:bolder;
+}
