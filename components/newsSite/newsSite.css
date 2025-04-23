@@ -15,13 +15,13 @@ img{
 
 .notis{
   display:flex;
+  box-shadow: 7px 8px 16px -1px rgba(168,168,168,1);
   padding:0px;
 }
 
 .notis p{
   padding: 8px;
   text-align:center;
-  box-shadow: 7px 8px 16px -1px rgba(168,168,168,1);
 }
 
 .notis .red{
