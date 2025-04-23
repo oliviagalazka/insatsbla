@@ -1,6 +1,7 @@
 function renderRapport(parent) {
   const wrapper = document.querySelector(parent);
-  container.innerHTML = `
+  wrapper.innerHTML = `
+    ${renderNav()}
     <div class="rapportInfo">
       <img src="../../media/pictures/rapportImg.png" alt="Polisens emblem">
       <div class="rapportText">
@@ -47,3 +48,4 @@ function renderRapport(parent) {
     </div>
   `;
 }
+
