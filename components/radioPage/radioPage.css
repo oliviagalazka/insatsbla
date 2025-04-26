@@ -37,7 +37,7 @@ body {
     width: 50px;
     height: 100px;
     background:
-  linear-gradient(to right, #484747 5%, #323232 100%);
+        linear-gradient(to right, #484747 5%, #323232 100%);
     position: absolute;
     left: 65px;
     top: -100px;
@@ -82,7 +82,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: 40px;
+    margin-top: 24px;
 }
 
 .mic {
@@ -121,7 +121,8 @@ body {
 #title {
     font-size: 20px;
     font-family: goldman-bold;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
+
 }
 
 #keypad {
@@ -154,7 +155,7 @@ body {
     text-align: center;
     font-size: 10px;
     font-family: helvetica;
-    color: white;
+    color: #cdcdcd;
 }
 
 .btn {
