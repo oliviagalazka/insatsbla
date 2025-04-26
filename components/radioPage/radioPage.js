@@ -1,5 +1,7 @@
-function renderRadioPage(parent) {
-    const container = document.querySelector(parent);
+function renderRadioPage(parentSelector) {
+    const container = document.querySelector(parentSelector);
+
+    container.innerHTML = '';
 
     container.innerHTML = `
                             <div id='radio-wrapper'>
