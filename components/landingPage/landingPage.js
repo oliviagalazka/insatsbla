@@ -23,7 +23,7 @@ function renderLandingPage(parentId) {
     // Skapa innehåll
     wrapper.innerHTML += `
         <h1>Dagens Agenda</h1>
-        <h2>Kommande utryckningar</h2>
+        <h2>Kommande insatser</h2>
         <div id="button-container"></div>
     `;
 
