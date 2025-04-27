@@ -8,6 +8,21 @@
     src: url(./fonts/Goldman/Goldman-Bold.ttf);
 }
 
+@font-face {
+    font-family: "hn-regular";
+    src: url(./fonts/helvetica-neue/HelveticaNeueRoman.otf);
+}
+
+@font-face {
+    font-family: "hn-thin";
+    src: url(./fonts/helvetica-neue/HelveticaNeueThin.otf);
+}
+
+@font-face {
+    font-family: "hn-bold";
+    src: url(./fonts/helvetica-neue/HelveticaNeueBold.otf);
+}
+
 :root {
     /* COLORS */
     --darkblue: #021C35;

@@ -1,7 +1,10 @@
 function renderRapport(parent) {
   const wrapper = document.querySelector(parent);
+  wrapper.id = 'wrapper-reportpage';
+
+  renderNav(wrapper.id);
+
   wrapper.innerHTML = `
-    ${renderNav()}
     <div class="rapportInfo">
       <img src="../../media/pictures/rapportImg.png" alt="Polisens emblem">
       <div class="rapportText">
@@ -48,4 +51,4 @@ function renderRapport(parent) {
     </div>
   `;
 }
-
+renderRapport('body');
