@@ -2,14 +2,14 @@ function renderNewsPage(parent) {
   document.body.className = 'body-newsSite';
 
   const wrapper = document.querySelector(parent);
-    // 1. Läs missionId från localStorage
-    const missionId = parseInt(localStorage.getItem('missionId'));
+  // 1. Läs missionId från localStorage
+  const missionId = parseInt(localStorage.getItem('missionId'));
 
-    // 2. Hitta rätt objekt i newsText
-    const currentNews = newsText.find(news => news.missionId === missionId);
+  // 2. Hitta rätt objekt i newsText
+  const currentNews = newsText.find(news => news.missionId === missionId);
 
   wrapper.innerHTML = `
-    <h1>SYDSVENSKAN</h1>
+  <img src="./media/pictures/sydsvenskan_logo.png" alt="Statz" class="newsLogo">
     
     <div class="newsNav">
       <div class="places">
@@ -32,7 +32,7 @@ function renderNewsPage(parent) {
     </div>
 
     <div class="newsTxt">
-      <img src="{currentNews.imgSource}" alt="Statz">
+      <img src="${currentNews.imgSource}" alt="Statz">
       <p>${currentNews.text}</p>
     </div>
   `;
