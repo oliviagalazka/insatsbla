@@ -90,7 +90,7 @@ let newsText = [
         imgSource: "./media/pictures/kokainjakten.webp",
         text: "Under 2024 rapporterade polisen i Malmö 27 % fler narkotikarelaterade ärenden än året innan. Mycket av det sker inte i mörka gränder, utan på skolor, innergårdar och ungdomars telefoner. En undersökning visar att nästan var femte Malmöbo upplever att narkotikapåverkade personer är ett problem i deras närmiljö<br><br>Polisen har gjort ett omfattande arbete kring dagens kryptiska chattar. Detta för att lättare stoppa gängkriminalitet och illegal narkotikaförsäljning. Idag har de som säljer narkotika hittat nya sätt att kommunicera med sina köpare. Polisen har upptäckt att det börjat ske en fysisk kommunikation i form av gömda handskrivna lappar."
     },
-<<<<<<< HEAD
+
   ];
 
   const tweets = [
