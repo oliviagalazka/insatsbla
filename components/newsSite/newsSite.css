@@ -77,3 +77,9 @@ body{
   line-height:130%;
   letter-spacing:0.12%;
 }
+
+.newsLogo{
+  width:200px;
+  height:100%;
+  padding:12px;
+}
