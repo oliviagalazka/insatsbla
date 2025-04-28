@@ -30,7 +30,6 @@ let newsText = [
   },
 ];
 
-
 function renderNewsPage(parent) {
   const wrapper = document.querySelector(parent);
   wrapper.innerHTML = `
