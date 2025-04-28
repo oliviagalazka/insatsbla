@@ -2,6 +2,12 @@ function renderNewsPage(parent) {
   document.body.className = 'body-newsSite';
 
   const wrapper = document.querySelector(parent);
+    // 1. Läs missionId från localStorage
+    const missionId = parseInt(localStorage.getItem('missionId'));
+
+    // 2. Hitta rätt objekt i newsText
+    const currentNews = newsText.find(news => news.missionId === missionId);
+
   wrapper.innerHTML = `
     <h1>SYDSVENSKAN</h1>
     
@@ -17,19 +23,17 @@ function renderNewsPage(parent) {
 
     <div class="notis">
       <p class="red">Just nu</p>
-      <p>Farliga bullar i Kungsparken</p>
+      <p>${currentNews.notis1}</p>
     </div>
 
     <div class="notis">
       <p class="red">Direkt</p>
-      <p>Polisens duktiga arbete i parken</p>
+      <p>${currentNews.notis2}</p>
     </div>
 
     <div class="newsTxt">
-      <img src="../../media/pictures/cykeltjuven.png" alt="Statz">
-      <p>
-      ${newsText[0].text}
-      </p>
+      <img src="{currentNews.imgSource}" alt="Statz">
+      <p>${currentNews.text}</p>
     </div>
   `;
 }
