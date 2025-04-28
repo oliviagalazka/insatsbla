@@ -1,5 +1,9 @@
-function showTweetNotification(message) {
+function showTweetNotification(username, message) {
   const notification = document.getElementById('notification');
+  const twitterUser = document.getElementById("username");
+  twitterUser.textContent = `${username}`;
+  const tweetText = document.getElementById("twitterTxt");
+  tweetText.textContent = `${message}`;
   
   // Show the notification
   notification.classList.add('show');
@@ -9,5 +13,3 @@ function showTweetNotification(message) {
     notification.classList.remove('show');
   }, 3000);
 }
-
-showTweetNotification("hej");
