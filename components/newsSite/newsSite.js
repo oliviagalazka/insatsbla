@@ -1,4 +1,6 @@
 function renderNewsPage(parent) {
+  document.body.className = 'body-newsSite';
+
   const wrapper = document.querySelector(parent);
   wrapper.innerHTML = `
     <h1>SYDSVENSKAN</h1>

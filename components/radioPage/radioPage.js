@@ -104,8 +104,24 @@ function renderRadioPage(parent, mission) {
 
 
     redBtn.addEventListener('click', () => {
-        newAudio.pause();
-        renderbikeVideoPage('body');
+        // newAudio.pause();
+        // renderbikeVideoPage('body');
+
+        if (newAudio) {
+            newAudio.pause();
+        }
+
+        const missionId = mission.missionId;
+
+        if (missionId === 1) {
+            renderReportPage('body'); // Visa rapporten för "Giftiga bullar"
+        } else if (missionId === 2) {
+            renderbikeVideoPage('body'); // Visa cykelstöld-videon
+        } else if (missionId === 3 || missionId === 4) {
+            renderNewsPage('body'); // Visa artikelnyheten
+        } else {
+            console.warn('Okänt missionId:', missionId);
+        }
     });
 
     pauseBtn.addEventListener('click', () => {
