@@ -1,9 +1,11 @@
 function renderbikeVideoPage(parent) {
+    document.body.className = 'body-bikevideopage';
+
     const container = document.querySelector(parent);
 
     container.innerHTML = `
         <div class="video-wrapper">
-            <video id="fullscreen-video" muted playsinline>
+            <video id="fullscreen-video" playsinline>
                 <source src="./media/videos/cykelstold.MOV" type="video/mp4" />
                 Din webbläsare stödjer inte videon.
             </video>
