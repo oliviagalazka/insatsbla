@@ -1,1 +1,1 @@
-renderRadioPage('body');
+renderLandingPage('body');
