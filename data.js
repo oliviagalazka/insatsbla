@@ -91,3 +91,51 @@ let newsText = [
       text:"Under 2024 rapporterade polisen i Malmö 27 % fler narkotikarelaterade ärenden än året innan. Mycket av det sker inte i mörka gränder, utan på skolor, innergårdar och ungdomars telefoner. En undersökning visar att nästan var femte Malmöbo upplever att narkotikapåverkade personer är ett problem i deras närmiljö<br><br>Polisen har gjort ett omfattande arbete kring dagens kryptiska chattar. Detta för att lättare stoppa gängkriminalitet och illegal narkotikaförsäljning. Idag har de som säljer narkotika hittat nya sätt att kommunicera med sina köpare. Polisen har upptäckt att det börjat ske en fysisk kommunikation i form av gömda handskrivna lappar."
     },
   ];
+
+  const tweets = [
+    {
+      missionId: 1,
+      good: [
+        { username: "KalleAnka78", text: "Äntligen kan jag och min hund våga oss ut igen, så tacksam för polisens insatser" },
+        { username: "ScoobyDoobySebbe", text: "Lilla Bella tackar polisen" }
+      ],
+      bad: [
+        { username: "KalleAnka78", text: "Polisen klarar inte ens av att hitta några bullar i en park… patetiskt!" },
+        { username: "ScoobyDoobySebbe", text: "Som vanligt trumfar civilkurage över riktigt polisarbete" }
+      ]
+    },
+    {
+      missionId: 2,
+      good: [
+        { username: "KodErik69", text: "Stort tack till poliserna som tog sig tid att leta spår efter min stulna cykel" },
+        { username: "KebabKungen", text: "TACK POLISEN, Jag kan äntligen känna mig säker som cyklist!" }
+      ],
+      bad: [
+        { username: "KodErik69", text: "Vad fan är poängen med er? Cykeltjuvarna skrattar åt er." },
+        { username: "KebabKungen", text: "Ska bli cykeltjuv bara för att stjäla polisens cykel" }
+      ]
+    },
+    {
+      missionId: 3,
+      good: [
+        { username: "KattKarin", text: "Tack för att ni såg och hjälpte en som annars blir osynlig." },
+        { username: "RäkmackaRolf", text: "Fantastiskt att se poliser visa medmänsklighet på riktigt." }
+      ],
+      bad: [
+        { username: "KattKarin", text: "Era hjärtan är lika kalla som gatan Pia sover på!" },
+        { username: "RäckmackaRolf", text: "Min katt hade varit bättre polis än Malmö poliser" }
+      ]
+    },
+    {
+      missionId: 4,
+      good: [
+        { username: "Johannezswag", text: "Respekt till polisen som gör allt för att stoppa gängkriminaliteten!" },
+        { username: "SurströmmingStefan", text: "Fan va härligt med rediga poliser i samhället" }
+      ],
+      bad: [
+        { username: "Johannezswag", text: "Snut = statens slav, inget annat" },
+        { username: "SurströmmingStefan", text: "Ni är bara våldsamma fegisar med vapen. Utan brickan är ni inget" }
+      ]
+    }
+  ];
+  
