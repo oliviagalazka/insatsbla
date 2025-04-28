@@ -1,1 +1,1 @@
-renderbikeVideoPage('body');
+renderLandingPage('body');

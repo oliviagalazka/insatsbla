@@ -1,0 +1,22 @@
+#nav-container {
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--lightblue);
+
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+#nav-container div {
+  margin-bottom: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+#logo-thin {
+  font-family: "hn-thin";
+}
+
+#logo-bold {
+  font-family: "hn-bold";
+}

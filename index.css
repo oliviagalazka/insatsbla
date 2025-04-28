@@ -8,7 +8,29 @@
     src: url(./fonts/Goldman/Goldman-Bold.ttf);
 }
 
-:root {}
+@font-face {
+    font-family: "hn-regular";
+    src: url(./fonts/helvetica-neue/HelveticaNeueRoman.otf);
+}
+
+@font-face {
+    font-family: "hn-thin";
+    src: url(./fonts/helvetica-neue/HelveticaNeueThin.otf);
+}
+
+@font-face {
+    font-family: "hn-bold";
+    src: url(./fonts/helvetica-neue/HelveticaNeueBold.otf);
+}
+
+:root {
+    /* COLORS */
+    --darkblue: #021C35;
+    --lightblue: #5594ED;
+    --yellow: #D0A631;
+    --green: #138636;
+    --red: #EF0F0F;
+}
 
 body {
     margin: 0;
