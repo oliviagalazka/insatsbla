@@ -80,6 +80,7 @@ function renderRadioPage(parent, mission) {
 
     let newAudio = null; // variabel för nytt ljud
 
+
     let countdownInterval = null; // För att kunna stoppa räknaren
     const timeDisplay = document.querySelector('#time div:last-child'); // Elementet som visar tiden
 
@@ -92,7 +93,9 @@ function renderRadioPage(parent, mission) {
         radioAudio.pause();
         radioAudio.currentTime = 0;
 
-        newAudio = new Audio(`./media/audios/${getAudioForMission(mission.missionId)}`);
+        // newAudio = new Audio(`./media/audios/${getAudioForMission(mission.missionId)}`);
+        const audioSource = mission.audioOverride ?? getAudioForMission(mission.missionId);
+        newAudio = new Audio(`./media/audios/${audioSource}`);
         newAudio.loop = false; // Viktigt! Inte loopa missionsljudet
 
         newAudio.addEventListener('loadedmetadata', () => {

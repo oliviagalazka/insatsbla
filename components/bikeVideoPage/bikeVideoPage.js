@@ -30,6 +30,8 @@ function renderbikeVideoPage(parent) {
 
     video.addEventListener('ended', () => {
         console.log("Videon är klar!");
+        document.querySelector('.body-bikevideopage').style.margin = '0';
+        renderReportPage('body');
         // Du kan här t.ex. visa en ny sida, popup, text etc.
     });
 }
