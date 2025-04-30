@@ -100,3 +100,19 @@ p {
   border-radius: 4px;
   height: 35px;
 }
+/* Lägg till detta i din CSS */
+.stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2) rotate(0deg); /* Börjar utan rotation */
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Längre tid för en långsammare effekt */
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.stamp.show {
+  transform: translate(-50%, -50%) scale(0.5) rotate(-15deg); /* Sned åt andra hållet och mindre sned */
+  opacity: 1;
+}

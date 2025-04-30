@@ -43,31 +43,42 @@ function renderReportPage(parentId) {
         </div>
           <div class="skickaIn">
             <p>Jag intygar på heder och samvete att ovanstående uppgifter är riktiga och sanningsenliga.</p>
-            <button type="submit">Skicka in</button>
+            <button id="submitBtn" type="submit">Skicka in</button>
           </div>
       </form>
-  
   `;
 
-  // Lägg till eventlyssnare på formuläret
-  const form = document.getElementById('reportForm');
+  // Lägg till eventlyssnare på knappen för submit
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.addEventListener('click', function (event) {
+    event.preventDefault(); // Förhindrar att sidan laddas om
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Stoppar sidan från att laddas om
-
-    // Samla ihop alla inputs
+    // Hämta formulär och inputs
+    const form = document.getElementById('reportForm');
     const inputs = form.querySelectorAll('input[type="text"]');
     const answers = [];
 
-    inputs.forEach((input, index) => {
-      answers.push({
-        question: mission.questions[index],
-        answer: input.value
-      });
+    // Hämta endast användarens svar
+    inputs.forEach((input) => {
+      answers.push(input.value);
     });
-
-    // Spara svaren i localStorage
-    localStorage.setItem('missionAnswers', JSON.stringify(answers));
+    
+    // Skapa en ny insatsrapport
+    const report = {
+      missionId: mission.missionId,
+      questions: mission.questions,
+      answers: answers
+    };
+    
+    // Hämta tidigare rapporter om de finns
+    const existingReports = JSON.parse(localStorage.getItem('reportAnswers')) || [];
+    
+    // Lägg till nya rapporten
+    existingReports.push(report);
+    
+    // Spara tillbaka
+    localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
+    
 
     // Rendera RadioPage
     let newMission = {
@@ -81,7 +92,22 @@ function renderReportPage(parentId) {
       newMission.audioOverride = 'uppdrag-2-del-2.mp3';
     }
 
-    renderRadioPage('body', newMission);
+    // Visa stämpel alltid, oavsett mission
+    const stamp = document.createElement('img');
+    stamp.src = '../../media/pictures/fallet_avslutat.png';
+    stamp.alt = 'Fallet avslutat';
+    stamp.className = 'stamp';
+    document.body.appendChild(stamp);
+
+    // Starta animation
+    setTimeout(() => {
+      stamp.classList.add('show');
+    }, 10);
+
+    // Gå till nästa sida efter animationen
+    setTimeout(() => {
+      renderRadioPage('body', newMission);
+    }, 800);
   });
 
 }
