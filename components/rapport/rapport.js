@@ -1,4 +1,4 @@
-localStorage.setItem('missionId', 2);
+
 
 function renderReportPage(parentId) {
   document.body.className = 'body-reportpage';
@@ -25,29 +25,55 @@ function renderReportPage(parentId) {
   // Skapa nav
   renderNav(wrapper.id);
 
-  // Skapa innehåll
-  wrapper.innerHTML = `
-    <div class="rapportInfo">
-      <img src="../../media/pictures/rapportImg.png" alt="Polisens emblem">
-      <div class="rapportText">
-        <h1>Insatsrapport</h1>
-        <p>Aspirantgrupp: Insats blå</p>
-        <p>Datum: ${showTodaysDate()}</p>
-      </div>
-    </div>
+  // // Skapa innehåll
+  // wrapper.innerHTML = `
+  //   <div class="rapportInfo">
+  //     <img src="./media/pictures/rapportImg.png" alt="Polisens emblem">
+  //     <div class="rapportText">
+  //       <h1>Insatsrapport</h1>
+  //       <p>Aspirantgrupp: Insats blå</p>
+  //       <p>Datum: ${showTodaysDate()}</p>
+  //     </div>
+  //   </div>
 
-    <div class="rapportDiv">
-      <h1>${mission.mission}</h1>
-      <form id="reportForm">
-        ${renderInputs(mission)}
+  //   <div class="rapportDiv">
+  //     <h1>${mission.mission}</h1>
+  //     <form id="reportForm">
+  //       ${renderInputs(mission)}
+  //       </div>
+  //         <div class="skickaIn">
+  //           <p>Jag intygar på heder och samvete att ovanstående uppgifter är riktiga och sanningsenliga.</p>
+  //           <button type="submit">Skicka in</button>
+  //         </div>
+  //     </form>
+
+  // `;
+  // Efter renderNav(wrapper.id), skapa själva innehållet separat
+  const content = document.createElement('div');
+  content.innerHTML = `
+  <div class="rapportInfo">
+    <img src="./media/pictures/rapportImg.png" alt="Polisens emblem">
+    <div class="rapportText">
+      <h1>Insatsrapport</h1>
+      <p>Aspirantgrupp: Insats blå</p>
+      <p>Datum: ${showTodaysDate()}</p>
+    </div>
+  </div>
+
+  <div class="rapportDiv">
+    <h1>${mission.mission}</h1>
+    <form id="reportForm">
+      ${renderInputs(mission)}
+        <div class="skickaIn">
+          <p>Jag intygar på heder och samvete att ovanstående uppgifter är riktiga och sanningsenliga.</p>
+          <button type="submit">Skicka in</button>
         </div>
-          <div class="skickaIn">
-            <p>Jag intygar på heder och samvete att ovanstående uppgifter är riktiga och sanningsenliga.</p>
-            <button type="submit">Skicka in</button>
-          </div>
-      </form>
-  
-  `;
+    </form>
+  </div>
+`;
+
+  wrapper.appendChild(content); // nu ligger det korrekt i DOM
+
 
   // Lägg till eventlyssnare på formuläret
   const form = document.getElementById('reportForm');
@@ -101,4 +127,4 @@ function renderInputs(mission) {
   return html;
 }
 
-renderReportPage('body');
+
