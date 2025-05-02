@@ -10,6 +10,7 @@
 /* Wrapper */
 #wrapper-landingpage {
   width: 100%;
+  height: 100vh;
   margin: 16px;
 }
 
@@ -22,7 +23,7 @@
 
 #wrapper-landingpage h1 {
   margin-top: 80px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   font-family: "hn-bold";
   font-size: 24px;
   letter-spacing: 3%;
@@ -33,6 +34,8 @@
   font-family: "hn-bold";
   font-size: 14px;
   letter-spacing: 3%;
+  font-family: "hn-regular";
+  font-size: 16px;
 }
 
 #wrapper-landingpage p {
@@ -42,7 +45,8 @@
 /* Buttons */
 .mission-button {
   background-color: #1D466C;
-  background: linear-gradient(90deg, rgba(38, 95, 149, 1) 0%, rgba(29, 70, 108, 1) 100%);
+  background: linear-gradient(90deg, var(--lightblue) 0%, #0B4883 100%);
+  /*background: linear-gradient(90deg, rgba(38, 95, 149, 1) 0%, rgba(29, 70, 108, 1) 100%);*/
   padding: 16px;
   margin-bottom: 16px;
   border-radius: 4px;
@@ -54,16 +58,18 @@
 }
 
 .locked {
-  background: RGBA(29, 70, 106, 0.7);
+  background: linear-gradient(90deg, RGBA(52, 100, 141, 0.7) 0%, #0B4883 100%);
+  /*background: RGBA(29, 70, 106, 0.7);*/
 }
 
 .mission-button p {
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }
 
 .locked p {
-  filter: blur(2px);
+  filter: blur(4px);
 }
 
 .done {
@@ -75,6 +81,23 @@ svg {
   padding: 0;
 }
 
-.unlocked svg {
+/* .unlocked svg {
   display: none;
+} */
+
+.locked-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'hn-regular';
+  z-index: 9999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  text-align: center;
+  width: 220px;
 }

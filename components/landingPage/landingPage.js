@@ -1,63 +1,93 @@
-// renderLandingPage()-funktion
-function renderLandingPage(parentId) {
-    document.body.className = 'body-landingpage';
+// Renderar startsidan (landningssidan) för spelet
+function renderLandingPage(selector) {
+    document.body.className = 'body-landingpage'; // Byt bakgrund/stil för landningssidan
 
-    const parent = document.querySelector(parentId);
-    parent.innerHTML = '';
+    const parent = document.querySelector(selector);
+    parent.innerHTML = ''; // Rensa tidigare innehåll
 
-    // Skapa wrapper
+    // Skapa en wrapper för sidan
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-landingpage';
     parent.appendChild(wrapper);
 
-    // Skapa nav
-    renderNav(wrapper.id);
+    renderNav(wrapper.id);             // Rendera navigationsmenyn
+    renderLandingContent(wrapper);     // Lägg till rubriker och behållare
+    renderMissionButtons();            // Skapa uppdragsknappar
+}
 
-    // Skapa innehåll
+// Renderar rubriker och en behållare för knapparna
+function renderLandingContent(wrapper) {
     wrapper.innerHTML += `
         <h1>Dagens Agenda</h1>
-        <h2>Kommande insatser</h2>
+        <h2>Insatser</h2>
         <div id="button-container"></div>
     `;
+}
 
-    // Skapa knappar
+// Renderar uppdragsknappar utifrån missions-arrayen
+function renderMissionButtons() {
     const buttonContainer = document.getElementById('button-container');
+
     missions.forEach((mission, index) => {
+        // Skapa knapp-element
         const button = document.createElement('div');
         button.className = `mission-button ${mission.locked ? 'locked' : 'unlocked'}`;
 
+        // Lägg till uppdragstext
         const missionText = document.createElement('p');
         missionText.textContent = mission.text;
 
+        // Välj rätt ikon beroende på låst status
         const icon = document.createElement('div');
-        icon.innerHTML = lockIconSVG;
+        icon.innerHTML = mission.locked ? lockedIconSVG : unlockedIconSVG;
 
+        // Bygg ihop knappen
         button.append(missionText, icon);
+
+        // Lägg till klickhändelse
         button.addEventListener('click', () => handleMissionClick(mission, index, missions));
 
+        // Lägg till knappen i DOM:en
         buttonContainer.appendChild(button);
     });
 }
 
-// Hantera knappar
+// Hanterar vad som händer när en uppdragsknapp klickas
 function handleMissionClick(mission, index, missions) {
     if (mission.locked) {
-        console.log('Detta uppdrag är låst.');
+        showLockedPopup(); // Visa popup om uppdraget är låst
         return;
     }
 
+    // Spara uppdragets ID i localStorage
     localStorage.setItem('missionId', mission.missionId);
     console.log('Uppdrag sparat:', mission.text);
 
+    // Lås upp nästa uppdrag (om det finns)
     if (index + 1 < missions.length) {
         missions[index + 1].locked = false;
     }
 
+    // Gå vidare till radiosidan
     renderRadioPage('body', mission);
     playRadioSound();
 }
 
-// Spela radiosignal
+// Visar en popup om användaren klickar på ett låst uppdrag
+function showLockedPopup() {
+    const popup = document.createElement('div');
+    popup.className = 'locked-popup';
+    popup.textContent = 'Denna insats är låst. Slutför föregående insats först.';
+
+    document.body.appendChild(popup);
+
+    // Ta bort popup efter 3 sekunder
+    setTimeout(() => {
+        popup.remove();
+    }, 3000);
+}
+
+// Spelar upp radiosignalen när ett uppdrag startar
 function playRadioSound() {
     const radioAudio = new Audio('./media/audios/radio-wave.mp3');
     radioAudio.play();

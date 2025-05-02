@@ -1,4 +1,8 @@
-body {
+/* body {
+  margin: 16px;
+} */
+
+#wrapper-reportpage {
   margin: 16px;
 }
 
@@ -17,7 +21,7 @@ H2 {
 input,
 p {
   font-family: Helvetica;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .inputDiv {
@@ -77,15 +81,15 @@ p {
 .skickaIn {
   display: flex;
   flex-direction: column;
-  margin-top: 72px;
+  margin-top: 44px;
 }
 
 .skickaIn p {
   color: #EF0F0F;
   margin: 0px 0px 8px 0px;
   padding: 0px;
-  font-family: Helvetica;
-  font-size: 12px;
+  font-family: 'hn-bold';
+  font-size: 14px;
 
 }
 
@@ -94,25 +98,55 @@ p {
   background-color: #5594ED;
   margin: 0px;
   padding: 8px;
-  font-family: Helvetica;
-  font-size: 12px;
+  font-family: 'hn-bold';
+  font-size: 14px;
   border: none;
   border-radius: 4px;
-  height: 35px;
+  height: 50px;
 }
+
 /* Lägg till detta i din CSS */
-.stamp {
+/* .stamp {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(2) rotate(0deg); /* Börjar utan rotation */
+  transform: translate(-50%, -50%) scale(2.0) rotate(0deg);
+
   opacity: 0;
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Längre tid för en långsammare effekt */
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+
   z-index: 9999;
   pointer-events: none;
 }
 
 .stamp.show {
-  transform: translate(-50%, -50%) scale(0.5) rotate(-15deg); /* Sned åt andra hållet och mindre sned */
+  transform: translate(-50%, -50%) scale(0.5) rotate(-15deg);
+
   opacity: 1;
+} */
+.stamp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90vw;
+  /* maxstorlek i förhållande till skärmen */
+  max-width: 400px;
+  /* förhindra att den blir för stor på stora skärmar */
+  transform: translate(-50%, -50%) scale(2.0) rotate(0deg);
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.stamp.show {
+  transform: translate(-50%, -50%) scale(1) rotate(-15deg);
+  opacity: 1;
+}
+
+
+#submitBtn {
+  font-size: 16px;
+  padding: 8px 0;
+
 }

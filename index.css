@@ -14,13 +14,13 @@
 }
 
 @font-face {
-    font-family: "hn-thin";
-    src: url(./fonts/helvetica-neue/HelveticaNeueThin.otf);
+    font-family: "hn-bold";
+    src: url(./fonts/helvetica-neue/HelveticaNeueBold.otf);
 }
 
 @font-face {
-    font-family: "hn-bold";
-    src: url(./fonts/helvetica-neue/HelveticaNeueBold.otf);
+    font-family: "hn-thin";
+    src: url(./fonts/helvetica-neue/HelveticaNeueThin.otf);
 }
 
 :root {
