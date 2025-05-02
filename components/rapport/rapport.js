@@ -62,23 +62,23 @@ function renderReportPage(parentId) {
     inputs.forEach((input) => {
       answers.push(input.value);
     });
-    
+
     // Skapa en ny insatsrapport
     const report = {
       missionId: mission.missionId,
       questions: mission.questions,
       answers: answers
     };
-    
+
     // Hämta tidigare rapporter om de finns
     const existingReports = JSON.parse(localStorage.getItem('reportAnswers')) || [];
-    
+
     // Lägg till nya rapporten
     existingReports.push(report);
-    
+
     // Spara tillbaka
     localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
-    
+
 
     // Rendera RadioPage
     let newMission = {
@@ -94,7 +94,7 @@ function renderReportPage(parentId) {
 
     // Visa stämpel alltid, oavsett mission
     const stamp = document.createElement('img');
-    stamp.src = '../../media/pictures/fallet_avslutat.png';
+    stamp.src = './media/pictures/fallet_avslutat.png';
     stamp.alt = 'Fallet avslutat';
     stamp.className = 'stamp';
     document.body.appendChild(stamp);
