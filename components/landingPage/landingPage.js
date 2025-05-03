@@ -55,7 +55,7 @@ function renderMissionButtons() {
 // Hanterar vad som händer när en uppdragsknapp klickas
 function handleMissionClick(mission, index, missions) {
     if (mission.locked) {
-        showLockedPopup(); // Visa popup om uppdraget är låst
+        showLockedPopup('Denna insats är låst. Slutför föregående insats först.');
         return;
     }
 
@@ -68,24 +68,25 @@ function handleMissionClick(mission, index, missions) {
         missions[index + 1].locked = false;
     }
 
+
     // Gå vidare till radiosidan
     renderRadioPage('body', mission);
     playRadioSound();
 }
 
 // Visar en popup om användaren klickar på ett låst uppdrag
-function showLockedPopup() {
+function showLockedPopup(message) {
     const popup = document.createElement('div');
     popup.className = 'locked-popup';
-    popup.textContent = 'Denna insats är låst. Slutför föregående insats först.';
+    popup.textContent = message;
 
     document.body.appendChild(popup);
 
-    // Ta bort popup efter 3 sekunder
     setTimeout(() => {
         popup.remove();
     }, 3000);
 }
+
 
 // Spelar upp radiosignalen när ett uppdrag startar
 function playRadioSound() {

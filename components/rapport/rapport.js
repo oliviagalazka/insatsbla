@@ -139,7 +139,7 @@ function renderReportPage(parentId) {
           // Navigera till nyhetssidan efter andra rapporten
           setTimeout(() => {
             renderNewsPage('body');
-          }, 6000);
+          }, 4500);
         }
       } else {
         // Första rapporten för Mission 2
@@ -197,6 +197,8 @@ function renderReportPage(parentId) {
         }
       }
 
+
+
       // Navigera vidare beroende på missionId
       setTimeout(() => {
         if (missionId === 3 || missionId === 4) {
@@ -204,7 +206,7 @@ function renderReportPage(parentId) {
         } else {
           renderNewsPage('body');
         }
-      }, 6000);
+      }, 4500);
     }
   });
 

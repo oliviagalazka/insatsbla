@@ -57,6 +57,7 @@ function startTimer(duration, display) {
     if (--timer < 0) {
       clearInterval(interval);
       display.textContent = 'Tiden är slut!';
+      showLockedPopup("Lilla svante fick precis i sig en bulle och hann inte till djursjukhuset i tid");
     }
   }, 1000);
 }

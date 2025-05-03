@@ -46,20 +46,20 @@ renderIntroVideo('body');
 
 
 // //////////////////////////
-// window.addEventListener('DOMContentLoaded', () => {
-//     const currentView = localStorage.getItem('currentView');
-//     const missionId = parseInt(localStorage.getItem('currentMissionId'), 10);
-//     const mission = missions.find(m => m.missionId === missionId);
+window.addEventListener('DOMContentLoaded', () => {
+    const currentView = localStorage.getItem('currentView');
+    const missionId = parseInt(localStorage.getItem('currentMissionId'), 10);
+    const mission = missions.find(m => m.missionId === missionId);
 
-//     if (currentView === 'radio' && mission) {
-//         renderRadioPage('body', mission);
-//     } else if (currentView === 'report' && mission) {
-//         renderReportPage('body');
-//     } else if (currentView === 'news') {
-//         renderNewsPage('body');
-//     } else if (currentView === 'video' && mission) {
-//         renderbikeVideoPage('body');
-//     } else {
-//         renderLandingPage('body'); // Om inget sparat, visa startsidan
-//     }
-// });
+    if (currentView === 'radio' && mission) {
+        renderRadioPage('body', mission);
+    } else if (currentView === 'report' && mission) {
+        renderReportPage('body');
+    } else if (currentView === 'news') {
+        renderNewsPage('body');
+    } else if (currentView === 'video' && mission) {
+        renderbikeVideoPage('body');
+    } else {
+        renderLandingPage('body'); // Om inget sparat, visa startsidan
+    }
+});

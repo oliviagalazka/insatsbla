@@ -77,5 +77,5 @@ function createTweetNotification(username, message) {
   setTimeout(() => {
     notification.classList.remove('show');
     notification.classList.add('hidden');
-  }, 6000);
+  }, 4500);
 }

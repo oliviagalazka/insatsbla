@@ -35,6 +35,8 @@ function renderNewsPage(parent) {
 <button id="nextBtn">Nästa</button>
 `;
 
+
+
   const nextBtn = document.getElementById('nextBtn');
   nextBtn.addEventListener('click', () => {
     if (missionId === 1) {
