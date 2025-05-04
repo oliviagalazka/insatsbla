@@ -1,5 +1,4 @@
-localStorage.setItem('missionId', 2);
-
+// renderReportPage-funktion - HELT OMARBETAD FÖR ATT FIXA FLÖDET
 function renderReportPage(parentId) {
   document.body.className = 'body-reportpage';
 
@@ -17,6 +16,22 @@ function renderReportPage(parentId) {
     return;
   }
 
+  // Skapa en kopia av mission-objektet som vi kan modifiera
+  const missionCopy = JSON.parse(JSON.stringify(mission));
+
+  // Hämta befintliga rapporter
+  const existingReports = JSON.parse(localStorage.getItem('reportAnswers')) || [];
+  const previousReport = existingReports.find(r => r.missionId === missionId);
+
+  // Hämta tidigare svar om de finns
+  let previousAnswers = [];
+  if (previousReport) {
+    previousAnswers = previousReport.answers;
+  }
+
+  // Kontrollera om detta är andra rapportvisningen i cykelstölden (missionId === 2)
+  const isSecondReportStep = localStorage.getItem('bikeReportStep') === 'second';
+
   // Skapa wrapper
   const wrapper = document.createElement('div');
   wrapper.id = 'wrapper-reportpage';
@@ -26,9 +41,10 @@ function renderReportPage(parentId) {
   renderNav(wrapper.id);
 
   // Skapa innehåll
-  wrapper.innerHTML = `
+  const content = document.createElement('div');
+  content.innerHTML = `
     <div class="rapportInfo">
-      <img src="../../media/pictures/rapportImg.png" alt="Polisens emblem">
+      <img src="./media/pictures/rapportImg.png" alt="Polisens emblem">
       <div class="rapportText">
         <h1>Insatsrapport</h1>
         <p>Aspirantgrupp: Insats blå</p>
@@ -37,9 +53,9 @@ function renderReportPage(parentId) {
     </div>
 
     <div class="rapportDiv">
-      <h1>${mission.mission}</h1>
+      <h1>${missionCopy.mission}</h1>
       <form id="reportForm">
-        ${renderInputs(mission)}
+      ${renderInputs(missionCopy, previousAnswers, isSecondReportStep)}
         </div>
           <div class="skickaIn">
             <p>Jag intygar på heder och samvete att ovanstående uppgifter är riktiga och sanningsenliga.</p>
@@ -48,83 +64,184 @@ function renderReportPage(parentId) {
       </form>
   `;
 
+  wrapper.appendChild(content);
+
   // Lägg till eventlyssnare på knappen för submit
   const submitBtn = document.getElementById('submitBtn');
+
   submitBtn.addEventListener('click', function (event) {
     event.preventDefault(); // Förhindrar att sidan laddas om
 
-    // Hämta formulär och inputs
     const form = document.getElementById('reportForm');
     const inputs = form.querySelectorAll('input[type="text"]');
-    const answers = [];
+    let answers = [];  // Definiera answers här
 
-    // Hämta endast användarens svar
-    inputs.forEach((input) => {
-      answers.push(input.value);
+    let allCorrect = true;  // Deklarera allCorrect här
+
+    // Samla in användarens svar och kontrollera korrekthet
+    inputs.forEach((input, index) => {
+      const userAnswer = input.value.trim().toLowerCase();
+      answers.push(userAnswer);
+
+      const correctEntry = missionCopy.questions[index];
+      if (correctEntry && correctEntry.correctAnswers) {
+        const isCorrect = correctEntry.correctAnswers.some(correct =>
+          correct.toLowerCase() === userAnswer
+        );
+
+        if (!isCorrect) {
+          allCorrect = false;
+        }
+      }
     });
-    
-    // Skapa en ny insatsrapport
-    const report = {
-      missionId: mission.missionId,
-      questions: mission.questions,
-      answers: answers
-    };
-    
-    // Hämta tidigare rapporter om de finns
+
+    // Hämta befintliga rapporter igen (kan ha ändrats)
     const existingReports = JSON.parse(localStorage.getItem('reportAnswers')) || [];
-    
-    // Lägg till nya rapporten
-    existingReports.push(report);
-    
-    // Spara tillbaka
-    localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
-    
+    const reportIndex = existingReports.findIndex(r => r.missionId === missionCopy.missionId);
 
-    // Rendera RadioPage
-    let newMission = {
-      missionId: mission.missionId,
-      text: mission.mission,
-      audioOverride: null // standard: inget override
-    };
-
-    // Om cykelstölden (missionId 2), byt till annan ljudfil
-    if (mission.missionId === 2) {
-      newMission.audioOverride = 'uppdrag-2-del-2.mp3';
-    }
-
-    // Visa stämpel alltid, oavsett mission
+    // Visa stämpel
     const stamp = document.createElement('img');
-    stamp.src = '../../media/pictures/fallet_avslutat.png';
+    stamp.src = './media/pictures/fallet_avslutat.png';
     stamp.alt = 'Fallet avslutat';
     stamp.className = 'stamp';
     document.body.appendChild(stamp);
 
-    // Starta animation
-    setTimeout(() => {
-      stamp.classList.add('show');
-    }, 10);
+    setTimeout(() => stamp.classList.add('show'), 5);
 
-    // Gå till nästa sida efter animationen
-    setTimeout(() => {
-      renderRadioPage('body', newMission);
-    }, 800);
+    // Hitta rätt tweet-uppsättning baserat på missionId
+    const tweetData = tweets.find(t => t.missionId === missionId);
+
+    if (tweetData) {
+      const tweetType = allCorrect ? tweetData.good : tweetData.bad;
+
+      // Välj två slumpade tweets från rätt kategori
+      const shuffledTweets = [...tweetType].sort(() => 0.5 - Math.random());
+      const selectedTweets = shuffledTweets.slice(0, 2);
+
+      // Visa tweets som notiser
+      selectedTweets.forEach(tweet => {
+        createTweetNotification(tweet.username, tweet.text);
+      });
+    }
+
+    // Hantera Mission 2 specifikt
+    if (missionId === 2) {
+      if (isSecondReportStep) {
+        // Andra rapporten för Mission 2
+        if (reportIndex !== -1) {
+          // Uppdatera den befintliga rapporten med nya svar
+          existingReports[reportIndex].answers = answers;
+          localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
+
+          // Ta bort flaggan för andra steget
+          localStorage.removeItem('bikeReportStep');
+
+          // Navigera till nyhetssidan efter andra rapporten
+          setTimeout(() => {
+            renderNewsPage('body');
+          }, 4500);
+        }
+      } else {
+        // Första rapporten för Mission 2
+        // Spara första rapportens svar
+        const report = {
+          missionId: missionCopy.missionId,
+          questions: missionCopy.questions,
+          answers: answers
+        };
+
+        if (reportIndex !== -1) {
+          existingReports[reportIndex] = report;
+        } else {
+          existingReports.push(report);
+        }
+
+        localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
+
+        // Sätt flaggan för andra rapporten
+        localStorage.setItem('bikeReportStep', 'second');
+
+        // Navigera till radiosidan med del 2 av uppdraget
+        setTimeout(() => {
+          const newMission = {
+            missionId: missionId,
+            text: missionCopy.mission,
+            audioOverride: 'uppdrag-2-del-2.mp3'
+          };
+          renderRadioPage('body', newMission);
+        }, 800);
+      }
+    } else {
+      // Hantering för Mission 1, 3 och 4
+      const report = {
+        missionId: missionCopy.missionId,
+        questions: missionCopy.questions,
+        answers: answers
+      };
+
+      if (reportIndex !== -1) {
+        existingReports[reportIndex] = report;
+      } else {
+        existingReports.push(report);
+      }
+
+      localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
+
+      // Lås upp nästa mission
+      let missions = JSON.parse(localStorage.getItem('missions'));
+      if (missions) {
+        const currentIndex = missions.findIndex(m => m.missionId === missionCopy.missionId);
+        if (currentIndex !== -1 && currentIndex + 1 < missions.length) {
+          missions[currentIndex + 1].locked = false;
+          localStorage.setItem('missions', JSON.stringify(missions));
+        }
+      }
+
+
+
+      // Navigera vidare beroende på missionId
+      setTimeout(() => {
+        if (missionId === 3 || missionId === 4) {
+          renderLandingPage('body');
+        } else {
+          renderNewsPage('body');
+        }
+      }, 4500);
+    }
   });
 
 }
 
-function renderInputs(mission) {
+// renderInputs-funktion för att skapa inmatningsfält för användaren
+function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
   let html = '';
 
-  mission.questions.forEach((question) => {
-    html += `
-      <div class="inputDiv">
-        <p>${question}</p>
-        <input type="text" required>
-      </div>
-    `;
-  });
+  // Mission 2, steg 2: tidigare svar + nytt fält
+  if (mission.missionId === 2 && isSecondStep) {
+    for (let i = 0; i < mission.questions.length; i++) {
+      const q = mission.questions[i];
+      const value = previousAnswers[i] || '';
+      html += `<div class="inputDiv">
+        <p>${q.question}</p>
+        <input type="text" required value="${value}">
+      </div>`;
+    }
+
+    // Extra fält för koordinater
+    html += `<div class="inputDiv">
+      <p>Cykelns koordinater:</p>
+      <input type="text" required value="">
+    </div>`;
+  } else {
+    // Övriga missioner och steg 1 i mission 2
+    mission.questions.forEach((q, i) => {
+      const value = previousAnswers[i] || '';
+      html += `<div class="inputDiv">
+        <p>${q.question}</p>
+        <input type="text" required value="${value}">
+      </div>`;
+    });
+  }
 
   return html;
 }
-
-renderReportPage('body');
