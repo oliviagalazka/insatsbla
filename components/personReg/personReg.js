@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="personReg.css">
-</head>
-<body class="regPage">
-<!--
+function renderpersonRegPage(parent) {
+  document.body.className = 'regPage';
+  const wrapper = document.querySelector(parent);
+
+  wrapper.innerHTML = 
+  `
   <div class="polisInfo">
     <p>Polismyndigheten</p>
     <P>Porslingsgatan 4B</P>
@@ -17,7 +13,7 @@
 
   <div class="img1Container">
    <img class="img1" src="../../media/pictures/rapportImg.png" alt="Polisens logga">
-   <h1>PERSONREGISTER</h1>
+   <h1 class="regPageH1" >PERSONREGISTER</h1>
   </div>
 
   <div class="personInfo">
@@ -26,29 +22,24 @@
     <div class="personInfoTxt">
       <div class="personInfoBox">
         <P><B>Namn:</B></P>
-        <p>Hanna Larsson</P>
+        <p>Hanna Larsson</p>
       </div>
       <div class="personInfoBox">
         <P><B>Personnummer:</B></P>
-          <p>19990807580</P>
+          <p>19990807580</p>
       </div>
       <div class="personInfoBox">
         <P><B>Adress:</B></P>
-          <p>Zenithgatan</P>
+          <p>Zenithgatan</p>
       </div>
         <div class="personInfoBox">
        <P><B></B></P>
-       <p>212 14 Malmö</P>
+       <p>212 14 Malmö</p>
 
       </div>
     </div>
   </div>
 
--->
+`;}
 
-<script src="../nav/nav.js"></script>
-<script src="personReg.js"></script>
-
-  
-</body>
-</html>
+renderpersonRegPage("body");
