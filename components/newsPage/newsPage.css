@@ -11,7 +11,8 @@ body {
   flex-direction: column;
   align-items: center;
   border: 1px solid rgba(000, 000, 000, 0.25);
-  margin: 0px 16px 16px 16px;
+  /* margin: 0px 16px 16px 16px; */
+  margin: 0px 16px 80px 16px;
 }
 
 .newsTxt img {
