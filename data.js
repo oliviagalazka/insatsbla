@@ -250,3 +250,12 @@ const tweets = [
     ]
   }
 ];
+
+const ending = [
+  {
+    goodHeader: "VÄL UTFÖRT ARBETE!",
+    goodTxt: "Vi har utvärderat er insats under aspiranttjänstsgöringen. Er goda prestation har lett till ett godkänt resultat. Ni har uppfyllt kraven och visat det som krävs för att bli godkända.<br><br>Ni är välkomna att ladda ner ert välförtjänta certifikat. Bra jobbat!",
+    badHeader: "EJ GODKÄNT.",
+    badTxt: "Vi har utvärderat er insats under aspiranttjänstsgöringen. Er prestation har INTE lett till ett godkänt resultat. Ni har INTE uppfyllt kraven eller visat det som krävs för att bli godkända. <br><br>Bättre lycka nästa gång. Ni är välkomna att delta i Insats Blå igen, förutsatt att ni är redo att höja er insats och visa att ni har det som krävs."
+  }
+];
