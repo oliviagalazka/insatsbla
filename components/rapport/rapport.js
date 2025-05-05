@@ -46,7 +46,7 @@ function renderReportPage(parentId) {
     <div class="rapportInfo">
       <img src="./media/pictures/rapportImg.png" alt="Polisens emblem">
       <div class="rapportText">
-        <h1>Insatsrapport</h1>
+        <h1>${missionId === 4 ? 'Polisens databas' : 'Insatsrapport'}</h1>
         <p>Aspirantgrupp: Insats blå</p>
         <p>Datum: ${showTodaysDate()}</p>
       </div>
@@ -57,10 +57,11 @@ function renderReportPage(parentId) {
       <form id="reportForm">
       ${renderInputs(missionCopy, previousAnswers, isSecondReportStep)}
         </div>
-          <div class="skickaIn">
-            <p>Jag intygar på heder och samvete att ovanstående uppgifter är riktiga och sanningsenliga.</p>
-            <button id="submitBtn" type="submit">Skicka in</button>
-          </div>
+        <div class="skickaIn">
+        ${missionId !== 4 ? '<p>Jag intygar på heder och samvete att ovanstående uppgifter är riktiga och sanningsenliga.</p>' : ''}
+        <button id="submitBtn" type="submit">${missionId === 4 ? 'Sök' : 'Skicka in'}</button>
+      </div>
+      
       </form>
   `;
 
@@ -94,6 +95,16 @@ function renderReportPage(parentId) {
         }
       }
     });
+
+    // Kontrollera om det finns dubblettsvar EFTER loopen
+    const uniqueAnswers = new Set(answers);
+    const hasDuplicates = uniqueAnswers.size < answers.length;
+
+    // Om dubbletter finns i Mission 1, sätt allCorrect till false
+    if (hasDuplicates && missionId === 1) {
+      allCorrect = false;
+    }
+
 
     // Hämta befintliga rapporter igen (kan ha ändrats)
     const existingReports = JSON.parse(localStorage.getItem('reportAnswers')) || [];

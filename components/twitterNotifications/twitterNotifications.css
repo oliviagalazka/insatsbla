@@ -101,7 +101,7 @@ p, h3{
   align-items: center;
 }
 
-.now {
+#now {
   margin-right: 24px;
   margin-top: 0px;
 }
@@ -115,8 +115,8 @@ p, h3{
 #tweetNotifications h3 {
   font-size: 12px;
   font-family: helvetica;
-  padding: 0px;
-  margin: 12px 0px 0px 32px;
+  /* padding: 0px; */
+  margin: 12px 12px 0px 32px;
 }
 
 .twitterLogo img {
@@ -127,9 +127,9 @@ p, h3{
   align-items: center;
 }
 
-.twitterLogo p {
-  margin-left: 8px;
-  margin-top: 0px;
+#twitter-text {
+  margin-left: 8px !important;
+  margin-top: 0px !important;
 }
 
 #twitterTxt {

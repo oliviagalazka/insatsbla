@@ -28,6 +28,7 @@ function createTweetNotification(username, message) {
   twitterLogo.appendChild(img);
 
   const logoText = document.createElement('p');
+  logoText.id = 'twitter-text';
   logoText.textContent = 'TWITTER';
   twitterLogo.appendChild(logoText);
 
@@ -36,7 +37,7 @@ function createTweetNotification(username, message) {
 
   // Skapa p för "now"
   const now = document.createElement('p');
-  now.classList.add('now');
+  now.id = 'now';
   now.textContent = 'now';
 
   // Lägg till "now" i logoContainer
@@ -66,6 +67,7 @@ function createTweetNotification(username, message) {
 
   // Lägg till wrapper i tweetContainer
   tweetContainer.appendChild(wrapper);
+
 
   // Visa notifikationen
   setTimeout(() => {
