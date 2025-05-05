@@ -13,7 +13,7 @@ function renderpersonRegPage(parent) {
 
   <div class="img1Container">
    <img class="img1" src="../../media/pictures/rapportImg.png" alt="Polisens logga">
-   <h1 class="regPageH1" >PERSONREGISTER</h1>
+   <h1 class="regPageH1">PERSONREGISTER</h1>
   </div>
 
   <div class="personInfo">
@@ -30,7 +30,7 @@ function renderpersonRegPage(parent) {
       </div>
       <div class="personInfoBox">
         <P><B>Adress:</B></P>
-          <p>Zenithgatan</p>
+          <p>Zenithgatan 3</p>
       </div>
         <div class="personInfoBox">
        <P><B></B></P>
