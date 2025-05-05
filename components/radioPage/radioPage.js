@@ -67,10 +67,28 @@ function renderRadioPage(parent, mission) {
 
     const radioAudio = document.getElementById('radio-audio');
 
-    // Starta grundljudet vid första klicket någonstans
-    document.addEventListener('click', () => {
-        radioAudio.play().catch(e => console.warn("Försökte spela grundljud:", e));
-    }, { once: true });
+    // Spela inte radio-wave om vi har ett specifikt uppdragsljud som override
+    const audioSource = mission.audioOverride ?? getAudioForMission(mission.missionId);
+    const shouldPlayRadioWave = !mission.audioOverride;
+
+    if (shouldPlayRadioWave) {
+        // Starta grundljudet vid första klicket någonstans
+        document.addEventListener('click', () => {
+            radioAudio.play().catch(e => console.warn("Försökte spela grundljud:", e));
+        }, { once: true });
+    } else {
+        // Pausa och nollställ radioAudio så det inte stör
+        radioAudio.pause();
+        radioAudio.currentTime = 0;
+    }
+
+
+    // const radioAudio = document.getElementById('radio-audio');
+
+    // // Starta grundljudet vid första klicket någonstans
+    // document.addEventListener('click', () => {
+    //     radioAudio.play().catch(e => console.warn("Försökte spela grundljud:", e));
+    // }, { once: true });
 
     // Hantera knapptryckningar
     const greenBtn = document.getElementById('green-btn');

@@ -6,7 +6,7 @@ function renderbikeVideoPage(parent) {
     container.innerHTML = `
       <div class="video-wrapper">
           <video id="fullscreen-video" playsinline>
-              <source src="./media/videos/cykelstold.MOV" type="video/mp4" />
+              <source src="./media/videos/cykel.mp4" type="video/mp4" />
               Din webbläsare stödjer inte videon.
           </video>
   

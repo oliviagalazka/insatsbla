@@ -60,6 +60,6 @@ window.addEventListener('DOMContentLoaded', () => {
     } else if (currentView === 'video' && mission) {
         renderbikeVideoPage('body');
     } else {
-        renderLandingPage('body'); // Om inget sparat, visa startsidan
+        renderIntroVideo('body'); // Om inget sparat, visa startsidan
     }
 });
