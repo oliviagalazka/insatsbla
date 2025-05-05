@@ -115,24 +115,24 @@ const reportContent = [
     mission: '2. Cykelstölden',
     questions: [
       {
-        question: 'Hade förövaren något på huvudet?',
-        correctAnswers: ['keps', 'mössa']
+        question: 'Vad har förövaren för något på huvudet?',
+        correctAnswers: ['hatt', 'cowboyhatt', 'brun hatt', 'en brun hatt', 'foodora', 'brun foodora', 'fodora', 'brun fodora', 'fedora', 'brun fedora', 'en hatt' ]
       },
       {
         question: 'Vilken färg hade jackan?',
-        correctAnswers: ['röd']
+        correctAnswers: ['brun', 'beige']
       },
       {
-        question: 'Kommer du ihåg vad förövaren hade på fötterna?',
-        correctAnswers: ['rosa tofflor', 'tofflor']
+        question: 'Kommer du ihåg vilken färg förövarens byxor var?',
+        correctAnswers: ['blå', 'ljusblå', 'jeansblå']
       },
       {
         question: 'Bar förövaren på något?',
-        correctAnswers: ['påse', 'kasse', 'papperspåse', 'papperskasse', 'systemetpåse', 'systemetkasse']
+        correctAnswers: ['påse', 'kasse', 'papperspåse', 'papperskasse', 'systemetpåse', 'systemetkasse', 'systembolagetspåse', 'systembolagetspåse', 'påse från systembolaget', 'kasse från systembolaget', 'en papperskasse', 'en papperspåse']
       },
       {
-        question: 'Var befann sig förövaren när du såg hen?',
-        correctAnswers: ['cykelstället', 'vid cyklarna', 'niagara', 'skolan', 'malmö universitet']
+        question: 'Vad kastade förövaren ifrån sig?',
+        correctAnswers: ['cykellås', 'ett cykellås', 'cykel lås', 'ett cykel lås',]
       }
     ]
   },
@@ -146,15 +146,11 @@ const reportContent = [
       },
       {
         question: 'Kön:',
-        correctAnswers: ['Kvinna']
+        correctAnswers: ['Kvinna','Dam', 'Tjej', 'Tant']
       },
       {
         question: 'Objekt:',
-        correctAnswers: ['Brun läderplånbok']
-      },
-      {
-        question: 'Plats:',
-        correctAnswers: ['Kattsundsgatan']
+        correctAnswers: ['Brun läderplånbok', 'plånbok', 'brun plånbok', 'läderplånbok']
       },
       {
         question: 'Personnummer:',
@@ -166,22 +162,6 @@ const reportContent = [
     missionId: 4,
     mission: '4. Kokainjakten',
     questions: [
-      {
-        question: 'Post-it 1:',
-        correctAnswers: ['Tågstation']
-      },
-      {
-        question: 'Post-it 2:',
-        correctAnswers: ['P-huset Anna']
-      },
-      {
-        question: 'Post-it 3:',
-        correctAnswers: ['Möllevångstorget']
-      },
-      {
-        question: 'Post-it 4:',
-        correctAnswers: ['Västra Hamnen']
-      },
       {
         question: 'Hittad knarkpåse:',
         correctAnswers: ['0723995982']
