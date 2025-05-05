@@ -167,22 +167,6 @@ const reportContent = [
     mission: '4. Kokainjakten',
     questions: [
       {
-        question: 'Post-it 1:',
-        correctAnswers: ['Tågstation']
-      },
-      {
-        question: 'Post-it 2:',
-        correctAnswers: ['P-huset Anna']
-      },
-      {
-        question: 'Post-it 3:',
-        correctAnswers: ['Möllevångstorget']
-      },
-      {
-        question: 'Post-it 4:',
-        correctAnswers: ['Västra Hamnen']
-      },
-      {
         question: 'Hittad knarkpåse:',
         correctAnswers: ['0723995982']
       }
