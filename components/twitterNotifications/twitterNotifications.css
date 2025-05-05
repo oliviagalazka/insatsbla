@@ -70,7 +70,7 @@ p, h3{
   border-radius: 20px;
   position: fixed;
   /* Ändrat från absolute till fixed för att hålla den på skärmen */
-  top: 20px;
+  top: 0px;
   /* Placera den högst upp på skärmen med lite avstånd */
   left: 50%;
   transform: translateX(-50%) translateY(-150%);

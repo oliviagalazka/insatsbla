@@ -88,7 +88,7 @@
   align-items: center;
   border-bottom: 1px solid var(--lightblue);
   margin-bottom: 24px;
-  /* padding: 16px 0; */
+  padding: 16px 0 24px 0;
   /* Lite luft i nav-baren */
   position: relative;
   height: 30px;

@@ -116,7 +116,7 @@ const reportContent = [
     questions: [
       {
         question: 'Vad har förövaren för något på huvudet?',
-        correctAnswers: ['hatt', 'cowboyhatt', 'brun hatt', 'en brun hatt', 'foodora', 'brun foodora', 'fodora', 'brun fodora', 'fedora', 'brun fedora', 'en hatt' ]
+        correctAnswers: ['hatt', 'cowboyhatt', 'brun hatt', 'en brun hatt', 'foodora', 'brun foodora', 'fodora', 'brun fodora', 'fedora', 'brun fedora', 'en hatt']
       },
       {
         question: 'Vilken färg hade jackan?',
@@ -146,7 +146,7 @@ const reportContent = [
       },
       {
         question: 'Kön:',
-        correctAnswers: ['Kvinna','Dam', 'Tjej', 'Tant']
+        correctAnswers: ['Kvinna', 'Dam', 'Tjej', 'Tant']
       },
       {
         question: 'Objekt:',
@@ -163,7 +163,7 @@ const reportContent = [
     mission: '4. Kokainjakten',
     questions: [
       {
-        question: 'Hittad knarkpåse:',
+        question: 'Telefonnummer:',
         correctAnswers: ['0723995982']
       }
     ]
