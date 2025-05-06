@@ -78,4 +78,6 @@ function createTweetNotification(username, message) {
   // Dölja den efter 3 sekunder
   setTimeout(() => {
     notification.classList.remove('show');
-    notification.classList.add('h
+    notification.classList.add('hidden');
+  }, 4500);
+}

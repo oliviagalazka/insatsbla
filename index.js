@@ -64,4 +64,20 @@ resumeLastView();
 
 
 
-// function navigateTo(view, 
+// function navigateTo(view, missionId = null) {
+//     localStorage.setItem('currentView', view);
+//     if (missionId !== null) localStorage.setItem('currentMissionId', missionId);
+
+//     if (view === 'radio') {
+//         const mission = missions.find(m => m.missionId === missionId);
+//         renderRadioPage('body', mission);
+//     } else if (view === 'report') {
+//         renderReportPage('body');
+//     } else if (view === 'news') {
+//         renderNewsPage('body');
+//     } else {
+//         renderStartGamePage('body');
+//     }
+// }
+
+// navigateTo('radio', mission.missionId);
