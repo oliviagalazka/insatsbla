@@ -79,6 +79,11 @@ const reportContent = [
       {
         question: 'Vad kastade förövaren ifrån sig?',
         correctAnswers: ['cykellås', 'ett cykellås', 'cykel lås', 'ett cykel lås',]
+      },
+      {
+        question: 'Vad är cykelns koordinater?',
+        correctAnswers: ['55.6023916, 13.0038505', '55.6023916,13.0038505', '55.6023916 13.0038505'],
+        visibleIfSecondStep: true
       }
     ]
   },

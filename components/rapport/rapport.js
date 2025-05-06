@@ -364,37 +364,55 @@ function renderReportPage(parentId) {
 }
 
 // renderInputs-funktion för att skapa inmatningsfält för användaren
+// function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
+//   let html = '';
+
+//   // Mission 2, steg 2: tidigare svar + nytt fält
+//   if (mission.missionId === 2 && isSecondStep) {
+//     for (let i = 0; i < mission.questions.length; i++) {
+//       const q = mission.questions[i];
+//       const value = previousAnswers[i] || '';
+//       html += `<div class="inputDiv">
+//         <p>${q.question}</p>
+//         <input type="text" required value="${value}">
+//       </div>`;
+//     }
+
+//     // Extra fält för koordinater
+//     html += `<div class="inputDiv">
+//       <p>Cykelns koordinater:</p>
+//       <input type="text" required value="">
+//     </div>`;
+//   } else {
+//     // Övriga missioner och steg 1 i mission 2
+//     mission.questions.forEach((q, i) => {
+//       const value = previousAnswers[i] || '';
+//       html += `<div class="inputDiv">
+//         <p>${q.question}</p>
+//         <input type="text" required value="${value}">
+//       </div>`;
+//     });
+//   }
+
+//   return html;
+// }
+
 function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
   let html = '';
 
-  // Mission 2, steg 2: tidigare svar + nytt fält
-  if (mission.missionId === 2 && isSecondStep) {
-    for (let i = 0; i < mission.questions.length; i++) {
-      const q = mission.questions[i];
+  mission.questions.forEach((q, i) => {
+    // Visa frågan om den inte har en flagga ELLER om vi är i andra steget
+    if (!q.visibleIfSecondStep || isSecondStep) {
       const value = previousAnswers[i] || '';
       html += `<div class="inputDiv">
         <p>${q.question}</p>
         <input type="text" required value="${value}">
       </div>`;
     }
-
-    // Extra fält för koordinater
-    html += `<div class="inputDiv">
-      <p>Cykelns koordinater:</p>
-      <input type="text" required value="">
-    </div>`;
-  } else {
-    // Övriga missioner och steg 1 i mission 2
-    mission.questions.forEach((q, i) => {
-      const value = previousAnswers[i] || '';
-      html += `<div class="inputDiv">
-        <p>${q.question}</p>
-        <input type="text" required value="${value}">
-      </div>`;
-    });
-  }
+  });
 
   return html;
 }
+
 
 
