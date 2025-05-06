@@ -1,5 +1,6 @@
 // Renderar startsidan (landningssidan) för spelet
 function renderLandingPage(selector) {
+    localStorage.setItem('currentView', 'landing');
     document.body.className = 'body-landingpage'; // Byt bakgrund/stil för landningssidan
 
     const parent = document.querySelector(selector);
@@ -12,6 +13,20 @@ function renderLandingPage(selector) {
 
     renderNav(wrapper.id);             // Rendera navigationsmenyn
     renderLandingContent(wrapper);     // Lägg till rubriker och behållare
+
+
+    const savedMissions = localStorage.getItem('missionsState');
+
+
+    if (savedMissions) {
+        const saved = JSON.parse(savedMissions);
+        saved.forEach((savedMission, i) => {
+            if (missions[i]) {
+                missions[i].locked = savedMission.locked;
+            }
+        });
+    }
+
     renderMissionButtons();            // Skapa uppdragsknappar
 }
 
@@ -67,6 +82,9 @@ function handleMissionClick(mission, index, missions) {
     if (index + 1 < missions.length) {
         missions[index + 1].locked = false;
     }
+
+    // Spara uppdaterade missions-arrayen till localStorage
+    localStorage.setItem('missionsState', JSON.stringify(missions));
 
 
     // Gå vidare till radiosidan

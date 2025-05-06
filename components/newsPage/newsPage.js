@@ -1,4 +1,6 @@
 function renderNewsPage(parent) {
+  localStorage.setItem('currentView', 'news');
+
   document.body.className = 'body-newsSite';
 
   const wrapper = document.querySelector(parent);
@@ -34,8 +36,6 @@ function renderNewsPage(parent) {
 
 <button id="nextBtn">Nästa</button>
 `;
-
-
 
   const nextBtn = document.getElementById('nextBtn');
   nextBtn.addEventListener('click', () => {

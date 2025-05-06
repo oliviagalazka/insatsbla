@@ -1,4 +1,7 @@
 function renderRadioPage(parent, mission) {
+    localStorage.setItem('currentView', 'radio');
+    localStorage.setItem('currentMissionId', mission.missionId);
+
     document.body.className = 'body-radiopage';
 
     const container = document.querySelector(parent);
@@ -127,34 +130,6 @@ function renderRadioPage(parent, mission) {
         hasAnsweredCall = true;
 
     });
-
-
-    // redBtn.addEventListener('click', () => {
-    //     if (!hasAnsweredCall) {
-    //         alert("Du måste ha tagit emot ditt samtal före du kan påbörja insatsen");
-    //         return;
-    //     }
-
-    //     if (newAudio) {
-    //         newAudio.pause();
-    //     }
-
-    //     const missionId = mission.missionId;
-
-    //     if (missionId === 1) {
-    //         renderReportPage('body');
-    //     } else if (missionId === 2) {
-    //         if (mission.audioOverride === 'uppdrag-2-del-2.mp3') {
-    //             renderReportPage('body');
-    //         } else {
-    //             renderbikeVideoPage('body');
-    //         }
-    //     } else if (missionId === 3 || missionId === 4) {
-    //         renderNewsPage('body');
-    //     } else {
-    //         console.warn('Okänt missionId:', missionId);
-    //     }
-    // });
 
     redBtn.addEventListener('click', () => {
         if (!hasAnsweredCall) {

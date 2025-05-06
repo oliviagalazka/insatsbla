@@ -30,6 +30,53 @@ body {
     z-index: 10;
 }
 
+
+#start-video-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #d4af37, #b88a2f, #d4af37);
+    background-size: 300% 300%;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-family: 'hn-bold';
+    font-size: 14px;
+    cursor: pointer;
+    text-shadow: 1px 1px 8px #707070;
+    box-shadow: 0px 1px 10px 1px #727171;
+}
+
+
+#start-video-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 80%);
+    transform: skewX(-20deg);
+    animation: shimmer 3s linear infinite;
+    pointer-events: none;
+}
+
+
+@keyframes shimmer {
+    0% {
+        left: -150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+
+/* 
 #start-video-btn {
     padding: 12px 44px;
     font-size: 12px;
@@ -45,4 +92,4 @@ body {
 
 #start-video-btn:hover {
     transform: scale(1.05);
-}
+} */

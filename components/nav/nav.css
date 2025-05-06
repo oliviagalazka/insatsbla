@@ -126,3 +126,8 @@
   align-items: flex-end;
   gap: 8px;
 }
+
+#back-to-intro-btn svg {
+  width: 24px;
+  height: 24px;
+}

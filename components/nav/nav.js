@@ -1,3 +1,52 @@
+// function renderNav(parentId) {
+//   const parent = document.getElementById(parentId);
+//   const nav = document.createElement('div');
+//   nav.id = 'nav-container';
+//   parent.appendChild(nav);
+
+//   nav.innerHTML = `
+//                   <div id='logo-thin'>INSATS</div>
+//                   <div id='logo-bold'>BLÅ</div>
+//                 `;
+// }
+
+// function renderNav(parentId) {
+//   const parent = document.getElementById(parentId);
+//   const nav = document.createElement('div');
+//   nav.id = 'nav-container';
+//   parent.appendChild(nav);
+
+//   nav.innerHTML = `
+//   <div class="nav-left" id="map-wrapper" style="display: none;">
+//     <img src="./media/pictures/map-icon.svg" alt="Karta" id="map-icon">
+//   </div>
+//   <div class="nav-center" id="nav-logo">
+//     <div id='logo-thin'>INSATS</div>
+//     <div id='logo-bold'>BLÅ</div>
+//   </div>
+//   <div class="nav-right" id="timer-wrapper" style="display: none;">
+//     <p id="mission-timer"></p>
+//   </div>
+// `;
+
+//   const missionId = parseInt(localStorage.getItem('missionId'), 10);
+
+//   if (missionId === 1) {
+//     document.getElementById('map-wrapper').style.display = 'flex';
+//     document.getElementById('timer-wrapper').style.display = 'flex';
+
+//     const timer = document.getElementById('mission-timer');
+//     startTimer(30 * 60, timer);
+
+//     const mapIcon = document.getElementById('map-icon');
+//     mapIcon.addEventListener('click', (e) => {
+//       e.stopPropagation();
+//       showMapPopup();
+//     });
+//   }
+
+// }
+
 function renderNav(parentId) {
   const parent = document.getElementById(parentId);
   const nav = document.createElement('div');
@@ -5,32 +54,38 @@ function renderNav(parentId) {
   parent.appendChild(nav);
 
   nav.innerHTML = `
-                  <div id='logo-thin'>INSATS</div>
-                  <div id='logo-bold'>BLÅ</div>
-                `;
-}
+    <div class="nav-left" id="map-wrapper" style="display: none;">
+      <img src="./media/pictures/map-icon.svg" alt="Karta" id="map-icon">
+    </div>
+    <div class="nav-center" id="nav-logo">
+      <div id='logo-thin'>INSATS</div>
+      <div id='logo-bold'>BLÅ</div>
+    </div>
+    <div class="nav-right" id="timer-wrapper" style="display: none;">
+      <p id="mission-timer"></p>
+    </div>
+  `;
 
-function renderNav(parentId) {
-  const parent = document.getElementById(parentId);
-  const nav = document.createElement('div');
-  nav.id = 'nav-container';
-  parent.appendChild(nav);
+  // Lägg till tillbakaknapp om vi är på landingpage
+  if (document.body.classList.contains('body-landingpage')) {
+    const backBtn = document.createElement('div');
+    backBtn.id = 'back-to-intro-btn';
+    backBtn.innerHTML = arrowIconSVG;
+    backBtn.style.position = 'absolute';
+    backBtn.style.top = '1rem';
+    backBtn.style.left = '1rem';
+    backBtn.style.zIndex = '1000';
+    document.body.appendChild(backBtn);
 
-  nav.innerHTML = `
-  <div class="nav-left" id="map-wrapper" style="display: none;">
-    <img src="./media/pictures/map-icon.svg" alt="Karta" id="map-icon">
-  </div>
-  <div class="nav-center" id="nav-logo">
-    <div id='logo-thin'>INSATS</div>
-    <div id='logo-bold'>BLÅ</div>
-  </div>
-  <div class="nav-right" id="timer-wrapper" style="display: none;">
-    <p id="mission-timer"></p>
-  </div>
-`;
+    // Eventlyssnare direkt efter att knappen finns
+    backBtn.addEventListener('click', () => {
+      console.log('Klickade på tillbakaknapp!');
+      document.body.innerHTML = '';
+      renderIntroVideoPage('body');
+    });
+  }
 
   const missionId = parseInt(localStorage.getItem('missionId'), 10);
-
   if (missionId === 1) {
     document.getElementById('map-wrapper').style.display = 'flex';
     document.getElementById('timer-wrapper').style.display = 'flex';
@@ -44,8 +99,11 @@ function renderNav(parentId) {
       showMapPopup();
     });
   }
-
 }
+
+
+
+
 
 function startTimer(duration, display) {
   let timer = duration;
@@ -101,42 +159,4 @@ function showMapPopup() {
 
   overlay.appendChild(mapImg);
   document.body.appendChild(overlay);
-}
-
-function renderIntroVideo(parent) {
-  document.body.className = 'body-introvideopage';
-  const container = document.querySelector(parent);
-
-  container.innerHTML = `
-      <div class="video-wrapper">
-          <video id="fullscreen-video" muted playsinline>
-              <source src="./media/videos/introvideo.mp4" type="video/mp4" />
-              Din webbläsare stödjer inte videon.
-          </video>
-
-          <div class="video-overlay" id="video-overlay">
-              <button id="start-video-btn">Starta Video</button>
-          </div>
-      </div>
-  `;
-
-  const video = document.getElementById('fullscreen-video');
-  const overlay = document.getElementById('video-overlay');
-  const startBtn = document.getElementById('start-video-btn');
-
-  startBtn.addEventListener('click', () => {
-    // Avmuta först när användaren klickar
-    video.muted = false;
-
-    video.play()
-      .then(() => {
-        overlay.style.display = 'none';
-      })
-      .catch(e => console.warn("Kunde inte spela upp video:", e));
-  });
-
-  video.addEventListener('ended', () => {
-    console.log("Videon är klar!");
-    renderLandingPage('body');
-  });
 }
