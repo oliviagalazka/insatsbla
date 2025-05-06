@@ -196,7 +196,7 @@ function renderReportPage(parentId) {
             <div class="result-item ${r.isCorrect ? 'correct' : 'incorrect'}">
               <p><strong>Fråga:</strong> ${r.question}</p>
               <p><strong>Ditt svar:</strong> ${r.userAnswer}</p>
-              ${r.isCorrect ? '<p>✅ Rätt!</p>' : `<p>❌ Fel. Rätt svar: ${r.correctAnswers.join(', ')}</p>`}
+              ${r.isCorrect ? '<p>Rätt!</p>' : `<p>Fel. Rätt svar: ${r.correctAnswers.join(', ')}</p>`}
             </div>
           `).join('')}
         </div>

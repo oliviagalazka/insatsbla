@@ -55,7 +55,7 @@ body {
 #results-popup {
     background: #fff;
     padding: 24px;
-    border-radius: 12px;
+    border-radius: 4px;
     max-height: 80vh;
     overflow-y: auto;
     width: 90%;
@@ -108,17 +108,21 @@ body {
     padding: 12px 16px;
     font-family: 'hn-bold';
     font-size: 14px;
+    background-color:#5594ED;
+    /*
     background: linear-gradient(120deg, #d4af37, #b88a2f, #d4af37);
     background-size: 300% 300%;
     box-shadow: 0px 1px 10px 1px #727171;
     text-shadow: 1px 1px 8px #707070;
     color: white;
+    */
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
     margin-top: 20px;
 }
 
+/*
 #closePopup::before {
     content: '';
     position: absolute;
@@ -143,4 +147,13 @@ body {
     100% {
         left: 150%;
     }
+}
+*/
+
+.correct{
+    color:#138636;
+}
+
+.incorrect{
+    color:#EF0F0F;
 }
