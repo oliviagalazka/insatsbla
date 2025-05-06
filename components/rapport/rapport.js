@@ -130,6 +130,7 @@ function renderReportPage(parentId) {
 
     setTimeout(() => stamp.classList.add('show'), 5);
 
+    /*
     // Hitta rätt tweet-uppsättning baserat på missionId
     const tweetData = tweets.find(t => t.missionId === missionId);
 
@@ -146,8 +147,7 @@ function renderReportPage(parentId) {
         createTweetNotification(tweet.username, tweet.text);
       });
     }
-
-
+    */
 
     setTimeout(() => {
       showResultsPopup(results, score);
@@ -216,6 +216,12 @@ function renderReportPage(parentId) {
               existingReports[reportIndex].answers = answers;
               localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
               localStorage.removeItem('bikeReportStep');
+
+              localStorage.setItem('lastMissionResult', JSON.stringify({
+                missionId: missionId,
+                allCorrect: allCorrect
+              }));
+
               renderNewsPage('body');
             }
           } else {
@@ -261,6 +267,10 @@ function renderReportPage(parentId) {
               localStorage.setItem('missions', JSON.stringify(missions));
             }
           }
+          localStorage.setItem('lastMissionResult', JSON.stringify({
+            missionId: missionId,
+            allCorrect: allCorrect
+          }));
 
           if (missionId === 3 || missionId === 4) {
             renderLandingPage('body');

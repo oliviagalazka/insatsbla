@@ -28,6 +28,28 @@ function renderLandingPage(selector) {
     }
 
     renderMissionButtons();            // Skapa uppdragsknappar
+
+    const lastResult = JSON.parse(localStorage.getItem('lastMissionResult'));
+
+    if (lastResult && typeof lastResult.missionId === 'number') {
+      const tweetData = tweets.find(t => t.missionId === lastResult.missionId);
+      if (tweetData) {
+        const tweetTypeArray = lastResult.allCorrect ? tweetData.good : tweetData.bad;
+        const shuffledTweets = [...tweetTypeArray].sort(() => 0.5 - Math.random());
+        const selectedTweets = shuffledTweets.slice(0, 2);
+        selectedTweets.forEach((tweet, index) => {
+            setTimeout(() => {
+              createTweetNotification(tweet.username, tweet.text);
+            }, index * 5000); // 5 sekunder mellan varje tweet (4.5s visning + liten paus)
+          });
+          
+      }
+    
+      // Ta bort efter visning så det inte visas igen varje gång
+      localStorage.removeItem('lastMissionResult');
+    }
+    
+
 }
 
 // Renderar rubriker och en behållare för knapparna
