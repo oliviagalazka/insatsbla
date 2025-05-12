@@ -1,3 +1,9 @@
+function updateTotalScore(scoreToAdd) {
+  const currentScore = parseInt(localStorage.getItem('totalScore'), 10) || 0;
+  const newScore = currentScore + scoreToAdd;
+  localStorage.setItem('totalScore', newScore);
+}
+
 // renderReportPage-funktion - HELT OMARBETAD FÖR ATT FIXA FLÖDET
 function renderReportPage(parentId) {
   localStorage.setItem('currentView', 'report');
@@ -279,6 +285,17 @@ function renderReportPage(parentId) {
           }
         }
       });
+
+// === Lägg till poängräkning till total score om tillämpligt ===
+if (missionId === 2) {
+  if (isSecondReportStep) {
+    updateTotalScore(score); // Endast ANDRA rapporten räknas
+  }
+} else {
+  updateTotalScore(score);
+}
+
+
     }
 
 
