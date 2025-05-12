@@ -209,4 +209,4 @@ const ending = [
     badHeader: "EJ GODKÄNT.",
     badTxt: "Vi har utvärderat er insats under aspiranttjänstsgöringen. Er prestation har INTE lett till ett godkänt resultat. Ni har INTE uppfyllt kraven eller visat det som krävs för att bli godkända. <br><br>Bättre lycka nästa gång. Ni är välkomna att delta i Insats Blå igen, förutsatt att ni är redo att höja er insats och visa att ni har det som krävs."
   }
-];
+]
