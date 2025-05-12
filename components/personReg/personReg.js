@@ -40,4 +40,23 @@ function renderpersonRegPage(parent) {
     </div>
   </div>
 
-`;}
+`;
+
+
+const lastResult = JSON.parse(localStorage.getItem('lastMissionResult'));
+if (lastResult?.missionId === 4 && lastResult?.allCorrect !== undefined) {
+  if (!document.querySelector('.stamp')) {
+    const stamp = document.createElement('img');
+    stamp.src = './media/pictures/fallet_avslutat.png';
+    stamp.alt = 'Fallet avslutat';
+    stamp.className = 'stamp';
+    document.body.appendChild(stamp);
+
+    // Lägg till en delay på t.ex. 3 sekunder innan stämpeln visas
+    setTimeout(() => {
+      stamp.classList.add('show');
+    }, 800); // 3000 ms = 3 sekunder
+  }
+}
+}
+
