@@ -86,7 +86,7 @@ function renderNav(parentId) {
   }
 
   const missionId = parseInt(localStorage.getItem('missionId'), 10);
-  if (missionId === 1) {
+  if (!document.body.classList.contains('body-landingpage') && missionId === 1) {
     document.getElementById('map-wrapper').style.display = 'flex';
     document.getElementById('timer-wrapper').style.display = 'flex';
 
@@ -101,24 +101,49 @@ function renderNav(parentId) {
   }
 }
 
+// function startTimer(duration, display) {
+//   let timer = duration;
+//   const interval = setInterval(() => {
+//     const minutes = Math.floor(timer / 60);
+//     const seconds = timer % 60;
+//     display.innerHTML = `${timerIconSVG} ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
+//     if (timer <= 0) {
+//       clearInterval(interval);
+//       display.textContent = 'Tiden är slut!';
+//       const autoSubmitBtn = document.getElementById('submitBtn');
+//       if (autoSubmitBtn) autoSubmitBtn.click();
+//     }
 
-
+//     timer--; // flytta ned
+//   }, 1000);
+// }
 
 function startTimer(duration, display) {
   let timer = duration;
+  let warningShown = false;
+
   const interval = setInterval(() => {
     const minutes = Math.floor(timer / 60);
     const seconds = timer % 60;
     display.innerHTML = `${timerIconSVG} ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
-    if (--timer < 0) {
+    if (!warningShown && timer === 10 * 60) {
+      showLockedPopup('Det är bara 10 minuter kvar på tiden...');
+      warningShown = true;
+    }
+
+    if (timer <= 0) {
       clearInterval(interval);
       display.textContent = 'Tiden är slut!';
-      showLockedPopup("Lilla svante fick precis i sig en bulle och hann inte till djursjukhuset i tid");
+      const autoSubmitBtn = document.getElementById('submitBtn');
+      if (autoSubmitBtn) autoSubmitBtn.click();
     }
+
+    timer--;
   }, 1000);
 }
+
 
 function showMapPopup() {
   const overlay = document.createElement('div');
