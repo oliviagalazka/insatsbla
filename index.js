@@ -2,29 +2,6 @@ if (!localStorage.getItem('missions')) {
     localStorage.setItem('missions', JSON.stringify(missions));
 }
 
-
-
-
-
-// window.addEventListener('DOMContentLoaded', () => {
-//     const currentView = localStorage.getItem('currentView');
-//     const missionId = parseInt(localStorage.getItem('currentMissionId'), 10);
-//     const mission = missions.find(m => m.missionId === missionId);
-
-//     if (currentView === 'radio' && mission) {
-//         renderRadioPage('body', mission);
-//     } else if (currentView === 'report' && mission) {
-//         renderReportPage('body');
-//     } else if (currentView === 'news') {
-//         renderNewsPage('body');
-//     } else if (currentView === 'video' && mission) {
-//         renderbikeVideoPage('body');
-//     } else {
-//         renderStartGamePage('body'); // Om inget sparat, visa startsidan
-//     }
-// });
-
-
 window.addEventListener('DOMContentLoaded', () => {
     const currentView = localStorage.getItem('currentView');
     const missionId = parseInt(localStorage.getItem('currentMissionId'), 10);

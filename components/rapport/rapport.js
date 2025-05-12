@@ -153,35 +153,6 @@ function renderReportPage(parentId) {
       showResultsPopup(results, score);
     }, 3000);
 
-    // function showResultsPopup(results, score) {
-    //   const overlay = document.createElement('div');
-    //   overlay.id = 'popup-overlay';
-
-    //   const popup = document.createElement('div');
-    //   popup.id = 'results-popup';
-    //   popup.innerHTML = `
-    //     <h2>Resultatrapport</h2>
-    //     <p>Du fick <strong>${score} poäng</strong>!</p>
-    //     <div class="results-list">
-    //       ${results.map(r => `
-    //         <div class="result-item ${r.isCorrect ? 'correct' : 'incorrect'}">
-    //           <p><strong>Fråga:</strong> ${r.question}</p>
-    //           <p><strong>Ditt svar:</strong> ${r.userAnswer}</p>
-    //           ${r.isCorrect ? '<p>✅ Rätt!</p>' : `<p>❌ Fel. Rätt svar: ${r.correctAnswers.join(', ')}</p>`}
-    //         </div>
-    //       `).join('')}
-    //     </div>
-    //     <button id="closePopup">Stäng</button>
-    //   `;
-
-    //   overlay.appendChild(popup);
-    //   document.body.appendChild(overlay);
-
-    //   document.getElementById('closePopup').addEventListener('click', () => {
-    //     document.body.removeChild(overlay);
-    //   });
-    // }
-
     function showResultsPopup(results, score) {
       const overlay = document.createElement('div');
       overlay.id = 'popup-overlay';
@@ -270,7 +241,6 @@ function renderReportPage(parentId) {
         }
       });
     }
-
 
 
 

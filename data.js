@@ -15,44 +15,44 @@ const reportContent = [
     mission: '1. Giftiga Bullar',
     questions: [
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '1. Bullens kod:',
+        correctAnswers: ["638"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '2. Bullens kod:',
+        correctAnswers: ["9834"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '3. Bullens kod:',
+        correctAnswers: ["9823"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '4. Bullens kod:',
+        correctAnswers: ["0234"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '5. Bullens kod:',
+        correctAnswers: ["2984"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '6. Bullens kod:',
+        correctAnswers: ["9274"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '7. Bullens kod:',
+        correctAnswers: ["0480"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '8. Bullens kod:',
+        correctAnswers: ["1425"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '9. Bullens kod:',
+        correctAnswers: ["8344"]
       },
       {
-        question: 'Bullens kod:',
-        correctAnswers: ["6382", "9834", "9823", "0234", "2984", "9274", "0480", "1425", "8344", "7362"]
+        question: '10. Bullens kod:',
+        correctAnswers: ["7362"]
       }
     ]
   },
