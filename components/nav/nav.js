@@ -86,7 +86,7 @@ function renderNav(parentId) {
   }
 
   const missionId = parseInt(localStorage.getItem('missionId'), 10);
-  if (missionId === 1) {
+  if (!document.body.classList.contains('body-landingpage') && missionId === 1) {
     document.getElementById('map-wrapper').style.display = 'flex';
     document.getElementById('timer-wrapper').style.display = 'flex';
 
