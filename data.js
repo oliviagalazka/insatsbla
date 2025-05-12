@@ -16,7 +16,7 @@ const reportContent = [
     questions: [
       {
         question: '1. Bullens kod:',
-        correctAnswers: ["638"]
+        correctAnswers: ["6382"]
       },
       {
         question: '2. Bullens kod:',
