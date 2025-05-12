@@ -153,35 +153,6 @@ function renderReportPage(parentId) {
       showResultsPopup(results, score);
     }, 3000);
 
-    // function showResultsPopup(results, score) {
-    //   const overlay = document.createElement('div');
-    //   overlay.id = 'popup-overlay';
-
-    //   const popup = document.createElement('div');
-    //   popup.id = 'results-popup';
-    //   popup.innerHTML = `
-    //     <h2>Resultatrapport</h2>
-    //     <p>Du fick <strong>${score} poäng</strong>!</p>
-    //     <div class="results-list">
-    //       ${results.map(r => `
-    //         <div class="result-item ${r.isCorrect ? 'correct' : 'incorrect'}">
-    //           <p><strong>Fråga:</strong> ${r.question}</p>
-    //           <p><strong>Ditt svar:</strong> ${r.userAnswer}</p>
-    //           ${r.isCorrect ? '<p>✅ Rätt!</p>' : `<p>❌ Fel. Rätt svar: ${r.correctAnswers.join(', ')}</p>`}
-    //         </div>
-    //       `).join('')}
-    //     </div>
-    //     <button id="closePopup">Stäng</button>
-    //   `;
-
-    //   overlay.appendChild(popup);
-    //   document.body.appendChild(overlay);
-
-    //   document.getElementById('closePopup').addEventListener('click', () => {
-    //     document.body.removeChild(overlay);
-    //   });
-    // }
-
     function showResultsPopup(results, score) {
       const overlay = document.createElement('div');
       overlay.id = 'popup-overlay';
@@ -283,7 +254,6 @@ function renderReportPage(parentId) {
 
 
 
-
     // // Hantera Mission 2 specifikt
     // if (missionId === 2) {
     //   if (isSecondReportStep) {
@@ -374,37 +344,55 @@ function renderReportPage(parentId) {
 }
 
 // renderInputs-funktion för att skapa inmatningsfält för användaren
+// function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
+//   let html = '';
+
+//   // Mission 2, steg 2: tidigare svar + nytt fält
+//   if (mission.missionId === 2 && isSecondStep) {
+//     for (let i = 0; i < mission.questions.length; i++) {
+//       const q = mission.questions[i];
+//       const value = previousAnswers[i] || '';
+//       html += `<div class="inputDiv">
+//         <p>${q.question}</p>
+//         <input type="text" required value="${value}">
+//       </div>`;
+//     }
+
+//     // Extra fält för koordinater
+//     html += `<div class="inputDiv">
+//       <p>Cykelns koordinater:</p>
+//       <input type="text" required value="">
+//     </div>`;
+//   } else {
+//     // Övriga missioner och steg 1 i mission 2
+//     mission.questions.forEach((q, i) => {
+//       const value = previousAnswers[i] || '';
+//       html += `<div class="inputDiv">
+//         <p>${q.question}</p>
+//         <input type="text" required value="${value}">
+//       </div>`;
+//     });
+//   }
+
+//   return html;
+// }
+
 function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
   let html = '';
 
-  // Mission 2, steg 2: tidigare svar + nytt fält
-  if (mission.missionId === 2 && isSecondStep) {
-    for (let i = 0; i < mission.questions.length; i++) {
-      const q = mission.questions[i];
+  mission.questions.forEach((q, i) => {
+    // Visa frågan om den inte har en flagga ELLER om vi är i andra steget
+    if (!q.visibleIfSecondStep || isSecondStep) {
       const value = previousAnswers[i] || '';
       html += `<div class="inputDiv">
         <p>${q.question}</p>
         <input type="text" required value="${value}">
       </div>`;
     }
-
-    // Extra fält för koordinater
-    html += `<div class="inputDiv">
-      <p>Cykelns koordinater:</p>
-      <input type="text" required value="">
-    </div>`;
-  } else {
-    // Övriga missioner och steg 1 i mission 2
-    mission.questions.forEach((q, i) => {
-      const value = previousAnswers[i] || '';
-      html += `<div class="inputDiv">
-        <p>${q.question}</p>
-        <input type="text" required value="${value}">
-      </div>`;
-    });
-  }
+  });
 
   return html;
 }
+
 
 
