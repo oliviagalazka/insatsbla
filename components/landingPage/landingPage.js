@@ -49,6 +49,24 @@ function renderLandingPage(selector) {
       localStorage.removeItem('lastMissionResult');
     }
     
+    // Kolla om mission 4 är klar (baserat på missionsState)
+    const missionsState = JSON.parse(localStorage.getItem('missionsState'));
+    const lastMission = missionsState && missionsState.find(m => m.missionId === 4 && m.locked === false);
+    const personregComplete = localStorage.getItem('personregComplete') === 'true';
+    
+    if (lastMission && personregComplete) {
+      const stampOutBtn = document.createElement('button');
+      stampOutBtn.textContent = 'Stämpla ut';
+      stampOutBtn.className = 'stamp-out-btn';
+    
+      stampOutBtn.addEventListener('click', () => {
+        renderpdfPopUp('body');
+      });
+    
+      wrapper.appendChild(stampOutBtn);
+    }
+    
+
 
 }
 
