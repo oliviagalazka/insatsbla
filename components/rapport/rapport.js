@@ -127,18 +127,24 @@ function renderReportPage(parentId) {
     const existingReports = JSON.parse(localStorage.getItem('reportAnswers')) || [];
     const reportIndex = existingReports.findIndex(r => r.missionId === missionCopy.missionId);
 
-    // Visa stämpel
-    const stamp = document.createElement('img');
-    stamp.src = './media/pictures/fallet_avslutat.png';
-    stamp.alt = 'Fallet avslutat';
-    stamp.className = 'stamp';
-    document.body.appendChild(stamp);
+    // Visa stämpeln
+    if (missionId !== 4) {
+      const stamp = document.createElement('img');
+      stamp.src = './media/pictures/fallet_avslutat.png';
+      stamp.alt = 'Fallet avslutat';
+      stamp.className = 'stamp';
+      document.body.appendChild(stamp);
+    
+      setTimeout(() => stamp.classList.add('show'), 5);
+    }
 
-    setTimeout(() => stamp.classList.add('show'), 5);
-
-    setTimeout(() => {
-      showResultsPopup(results, score);
-    }, 3000);
+    if (missionId === 4) {
+            showResultsPopup(results, score);
+          } else {
+            setTimeout(() => {
+              showResultsPopup(results, score);
+            }, 3000);
+          }
 
     function showResultsPopup(results, score) {
       const overlay = document.createElement('div');
@@ -245,7 +251,7 @@ function renderReportPage(parentId) {
               localStorage.setItem('personregComplete', 'true');
           
               renderLandingPage('body');
-            }, 10000); // 10 sekunder
+            }, 5000); // 10 sekunder
           } else if (missionId === 3) {
             renderLandingPage('body');
           } else {
