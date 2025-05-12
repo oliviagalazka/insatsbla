@@ -136,25 +136,6 @@ function renderReportPage(parentId) {
 
     setTimeout(() => stamp.classList.add('show'), 5);
 
-    /*
-    // Hitta rätt tweet-uppsättning baserat på missionId
-    const tweetData = tweets.find(t => t.missionId === missionId);
-
-    if (tweetData) {
-      // Använd befintliga allCorrect från tidigare beräkning
-      const tweetTypeArray = allCorrect ? tweetData.good : tweetData.bad;
-
-      // Välj två slumpade tweets från rätt kategori
-      const shuffledTweets = [...tweetTypeArray].sort(() => 0.5 - Math.random());
-      const selectedTweets = shuffledTweets.slice(0, 2);
-
-      // Visa tweets som notiser
-      selectedTweets.forEach(tweet => {
-        createTweetNotification(tweet.username, tweet.text);
-      });
-    }
-    */
-
     setTimeout(() => {
       showResultsPopup(results, score);
     }, 3000);
@@ -274,142 +255,20 @@ function renderReportPage(parentId) {
         }
       });
 
-// === Lägg till poängräkning till total score om tillämpligt ===
-if (missionId === 2) {
-  if (isSecondReportStep) {
-    updateTotalScore(score); // Endast ANDRA rapporten räknas
-  }
-} else {
-  updateTotalScore(score);
-}
-
+      // === Lägg till poängräkning till total score om tillämpligt ===
+      if (missionId === 2) {
+        if (isSecondReportStep) {
+          updateTotalScore(score); // Endast ANDRA rapporten räknas
+        }
+      } else {
+        updateTotalScore(score);
+      }
 
     }
-
-
-
-    // // Hantera Mission 2 specifikt
-    // if (missionId === 2) {
-    //   if (isSecondReportStep) {
-    //     // Andra rapporten för Mission 2
-    //     if (reportIndex !== -1) {
-    //       // Uppdatera den befintliga rapporten med nya svar
-    //       existingReports[reportIndex].answers = answers;
-    //       localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
-
-    //       // Ta bort flaggan för andra steget
-    //       localStorage.removeItem('bikeReportStep');
-
-    //       // Navigera till nyhetssidan efter andra rapporten
-    //       setTimeout(() => {
-    //         renderNewsPage('body');
-    //       }, 4500);
-    //     }
-    //   } else {
-    //     // Första rapporten för Mission 2
-    //     // Spara första rapportens svar
-    //     const report = {
-    //       missionId: missionCopy.missionId,
-    //       questions: missionCopy.questions,
-    //       answers: answers
-    //     };
-
-    //     if (reportIndex !== -1) {
-    //       existingReports[reportIndex] = report;
-    //     } else {
-    //       existingReports.push(report);
-    //     }
-
-    //     localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
-
-    //     // Sätt flaggan för andra rapporten
-    //     localStorage.setItem('bikeReportStep', 'second');
-
-    //     // Navigera till radiosidan med del 2 av uppdraget
-    //     setTimeout(() => {
-    //       const newMission = {
-    //         missionId: missionId,
-    //         text: missionCopy.mission,
-    //         audioOverride: 'uppdrag-2-del-2.mp3'
-    //       };
-    //       renderRadioPage('body', newMission);
-    //       playRadioSound();
-    //     }, 800);
-    //   }
-    // } else {
-    //   // Hantering för Mission 1, 3 och 4
-    //   const report = {
-    //     missionId: missionCopy.missionId,
-    //     questions: missionCopy.questions,
-    //     answers: answers
-    //   };
-
-    //   if (reportIndex !== -1) {
-    //     existingReports[reportIndex] = report;
-    //   } else {
-    //     existingReports.push(report);
-    //   }
-
-    //   localStorage.setItem('reportAnswers', JSON.stringify(existingReports));
-
-    //   // Lås upp nästa mission
-    //   let missions = JSON.parse(localStorage.getItem('missions'));
-    //   if (missions) {
-    //     const currentIndex = missions.findIndex(m => m.missionId === missionCopy.missionId);
-    //     if (currentIndex !== -1 && currentIndex + 1 < missions.length) {
-    //       missions[currentIndex + 1].locked = false;
-    //       localStorage.setItem('missions', JSON.stringify(missions));
-    //     }
-    //   }
-
-
-
-    //   // Navigera vidare beroende på missionId
-    //   setTimeout(() => {
-    //     if (missionId === 3 || missionId === 4) {
-    //       renderLandingPage('body');
-    //     } else {
-    //       renderNewsPage('body');
-    //     }
-    //   }, 4500);
-    // }
   });
 
 }
 
-// renderInputs-funktion för att skapa inmatningsfält för användaren
-// function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
-//   let html = '';
-
-//   // Mission 2, steg 2: tidigare svar + nytt fält
-//   if (mission.missionId === 2 && isSecondStep) {
-//     for (let i = 0; i < mission.questions.length; i++) {
-//       const q = mission.questions[i];
-//       const value = previousAnswers[i] || '';
-//       html += `<div class="inputDiv">
-//         <p>${q.question}</p>
-//         <input type="text" required value="${value}">
-//       </div>`;
-//     }
-
-//     // Extra fält för koordinater
-//     html += `<div class="inputDiv">
-//       <p>Cykelns koordinater:</p>
-//       <input type="text" required value="">
-//     </div>`;
-//   } else {
-//     // Övriga missioner och steg 1 i mission 2
-//     mission.questions.forEach((q, i) => {
-//       const value = previousAnswers[i] || '';
-//       html += `<div class="inputDiv">
-//         <p>${q.question}</p>
-//         <input type="text" required value="${value}">
-//       </div>`;
-//     });
-//   }
-
-//   return html;
-// }
 
 function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
   let html = '';
