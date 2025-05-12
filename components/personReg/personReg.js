@@ -12,12 +12,12 @@ function renderpersonRegPage(parent) {
   </div>
 
   <div class="img1Container">
-   <img class="img1" src="../../media/pictures/rapportImg.png" alt="Polisens logga">
+   <img class="img1" src="./media/pictures/rapportImg.png" alt="Polisens logga">
    <h1 class="regPageH1">PERSONREGISTER</h1>
   </div>
 
   <div class="personInfo">
-    <img class="img2" src="../../media/pictures/drugGirl.jpg">
+    <img class="img2" src="./media/pictures/drugGirl.jpg">
 
     <div class="personInfoTxt">
       <div class="personInfoBox">
@@ -41,5 +41,3 @@ function renderpersonRegPage(parent) {
   </div>
 
 `;}
-
-renderpersonRegPage("body");

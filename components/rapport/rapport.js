@@ -248,12 +248,29 @@ function renderReportPage(parentId) {
             missionId: missionId,
             allCorrect: allCorrect
           }));
-
-          if (missionId === 3 || missionId === 4) {
+          if (missionId === 4) {
+            renderpersonRegPage('body'); // Visa personregistret först
+          
+            setTimeout(() => {
+              // Spara i localStorage att mission 4 är färdigrapporterad
+              let missionsState = JSON.parse(localStorage.getItem('missionsState')) || [];
+              const index = missionsState.findIndex(m => m.missionId === 4);
+              if (index !== -1) {
+                missionsState[index].locked = false;
+              } else {
+                missionsState.push({ missionId: 4, locked: false });
+              }
+              localStorage.setItem('missionsState', JSON.stringify(missionsState));
+              localStorage.setItem('personregComplete', 'true');
+          
+              renderLandingPage('body');
+            }, 10000); // 10 sekunder
+          } else if (missionId === 3) {
             renderLandingPage('body');
           } else {
             renderNewsPage('body');
           }
+          
         }
       });
 
