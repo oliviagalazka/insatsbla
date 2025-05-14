@@ -34,6 +34,7 @@
 
 body {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -92,23 +93,13 @@ body {
     /* background: #ffe6e6; */
 }
 
-/* #closePopup {
-    margin-top: 1em;
-    padding: 0.5em 1em;
-    background: #222;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-} */
-
 #closePopup {
     position: relative;
     overflow: hidden;
     padding: 12px 16px;
     font-family: 'hn-bold';
     font-size: 14px;
-    background-color:#5594ED;
+    background-color: #5594ED;
     /*
     background: linear-gradient(120deg, #d4af37, #b88a2f, #d4af37);
     background-size: 300% 300%;
@@ -150,10 +141,10 @@ body {
 }
 */
 
-.correct{
-    color:#138636;
+.correct {
+    color: #138636;
 }
 
-.incorrect{
-    color:#EF0F0F;
+.incorrect {
+    color: #EF0F0F;
 }
