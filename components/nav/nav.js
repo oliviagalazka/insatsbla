@@ -67,6 +67,9 @@ function startTimer(duration, display) {
   let timer = duration;
   let warningShown = false;
 
+  const warningAudio = new Audio('./media/audios/ticking-timer.mp3');
+  warningAudio.loop = true;
+
   const interval = setInterval(() => {
     const minutes = Math.floor(timer / 60);
     const seconds = timer % 60;
@@ -74,7 +77,13 @@ function startTimer(duration, display) {
 
     if (!warningShown && timer === 10 * 60) {
       showLockedPopup('Det är bara 10 minuter kvar på tiden...');
+      warningAudio.play();
       warningShown = true;
+
+      setTimeout(() => {
+        warningAudio.pause();
+        warningAudio.currentTime = 0;
+      }, 30000);
     }
 
     if (timer <= 0) {

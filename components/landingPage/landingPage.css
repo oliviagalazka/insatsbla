@@ -111,6 +111,7 @@ svg {
   font-weight:bold;
   width:100%;
   overflow:hidden;
+  color:black;
 
 
   background: linear-gradient(120deg, #d4af37, #b88a2f, #d4af37);
