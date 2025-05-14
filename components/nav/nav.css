@@ -39,10 +39,17 @@
 
 .nav-left {
   justify-content: flex-start;
+  gap: 8px;
 }
 
 .nav-right {
   justify-content: flex-end;
+}
+
+#info-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .nav-center {
