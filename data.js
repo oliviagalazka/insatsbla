@@ -7,6 +7,8 @@ const missions = [
   { missionId: 4, text: '4. Kokainjakten', locked: true }
 ];
 
+const originalMissions = JSON.parse(JSON.stringify(missions));
+
 // // ReportPage
 // // Kopplat till frågorna i inputfälten
 const reportContent = [
