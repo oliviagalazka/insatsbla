@@ -18,8 +18,14 @@ function renderpdfPopUp(parent) {
       ${passed ? `
         <div class="buttonDiv">
           <button class="pdfDownload"><span>Ladda ned certifikat</span></button>
-        </div>` : ''}
+
+        </div>
+
+        ` 
+        
+        : ''}
     </div>
+                      <button class="quitGame">Avsluta spelet</button>
   `;
 
   // Lägg till nedladdningsfunktion om godkänt
