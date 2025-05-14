@@ -1,3 +1,35 @@
+/* #nav-container {
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--lightblue);
+
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+#nav-container div {
+  margin-bottom: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+#logo-thin {
+  font-family: "hn-thin";
+}
+
+#logo-bold {
+  font-family: "hn-bold";
+} */
+
+/* #nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--lightblue);
+  margin-bottom: 24px;
+  position: relative;
+} */
+
 .nav-left,
 .nav-right {
   flex: 1;
@@ -7,13 +39,6 @@
 
 .nav-left {
   justify-content: flex-start;
-  gap: 16px;
-}
-
-#info-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .nav-right {
@@ -47,8 +72,8 @@
 }
 
 #map-icon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
 }
 
