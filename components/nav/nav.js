@@ -1,57 +1,3 @@
-// function renderNav(parentId) {
-//   const parent = document.getElementById(parentId);
-//   const nav = document.createElement('div');
-//   nav.id = 'nav-container';
-//   parent.appendChild(nav);
-
-//   nav.innerHTML = `
-//     <div class="nav-left" id="map-wrapper" style="display: none;">
-//       <img src="./media/pictures/map-icon.svg" alt="Karta" id="map-icon">
-//     </div>
-//     <div class="nav-center" id="nav-logo">
-//       <div id='logo-thin'>INSATS</div>
-//       <div id='logo-bold'>BLÅ</div>
-//     </div>
-//     <div class="nav-right" id="timer-wrapper" style="display: none;">
-//       <p id="mission-timer"></p>
-//     </div>
-//   `;
-
-//   // Lägg till tillbakaknapp om vi är på landingpage
-//   if (document.body.classList.contains('body-landingpage')) {
-//     const backBtn = document.createElement('div');
-//     backBtn.id = 'back-to-intro-btn';
-//     backBtn.innerHTML = arrowIconSVG;
-//     backBtn.style.position = 'absolute';
-//     backBtn.style.top = '1rem';
-//     backBtn.style.left = '1rem';
-//     backBtn.style.zIndex = '1000';
-//     document.body.appendChild(backBtn);
-
-//     // Eventlyssnare direkt efter att knappen finns
-//     backBtn.addEventListener('click', () => {
-//       console.log('Klickade på tillbakaknapp!');
-//       document.body.innerHTML = '';
-//       renderIntroVideoPage('body');
-//     });
-//   }
-
-//   const missionId = parseInt(localStorage.getItem('missionId'), 10);
-//   if (!document.body.classList.contains('body-landingpage') && missionId === 1) {
-//     document.getElementById('map-wrapper').style.display = 'flex';
-//     document.getElementById('timer-wrapper').style.display = 'flex';
-
-//     const timer = document.getElementById('mission-timer');
-//     startTimer(30 * 60, timer);
-
-//     const mapIcon = document.getElementById('map-icon');
-//     mapIcon.addEventListener('click', (e) => {
-//       e.stopPropagation();
-//       showMapPopup();
-//     });
-//   }
-// }
-
 function renderNav(parentId) {
   const parent = document.getElementById(parentId);
   const nav = document.createElement('div');
@@ -185,6 +131,32 @@ function showMapPopup() {
 }
 
 
+// function showInfoPopup() {
+//   const overlay = document.createElement('div');
+//   overlay.id = 'info-overlay';
+//   overlay.style.position = 'fixed';
+//   overlay.style.top = 0;
+//   overlay.style.left = 0;
+//   overlay.style.width = '100vw';
+//   overlay.style.height = '100vh';
+//   overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
+//   overlay.style.display = 'flex';
+//   overlay.style.alignItems = 'center';
+//   overlay.style.justifyContent = 'center';
+//   overlay.style.zIndex = 1000;
+
+//   overlay.addEventListener('click', () => document.body.removeChild(overlay));
+
+//   const infoImg = document.createElement('img');
+//   infoImg.src = './media/pictures/i1.png'; // byt till rätt filnamn
+//   infoImg.alt = 'Information';
+//   infoImg.style.maxWidth = '90%';
+//   infoImg.style.maxHeight = '90%';
+
+//   overlay.appendChild(infoImg);
+//   document.body.appendChild(overlay);
+// }
+
 function showInfoPopup() {
   const overlay = document.createElement('div');
   overlay.id = 'info-overlay';
@@ -201,11 +173,29 @@ function showInfoPopup() {
 
   overlay.addEventListener('click', () => document.body.removeChild(overlay));
 
+  // Hämta missionId från localStorage
+  const missionId = parseInt(localStorage.getItem('missionId'), 10);
+
+  // Sätt bild baserat på missionId
   const infoImg = document.createElement('img');
-  infoImg.src = './media/pictures/i1.png'; // byt till rätt filnamn
   infoImg.alt = 'Information';
   infoImg.style.maxWidth = '90%';
   infoImg.style.maxHeight = '90%';
+
+  switch (missionId) {
+    case 1:
+      infoImg.src = './media/pictures/i1.png';
+      break;
+    case 2:
+      infoImg.src = './media/pictures/i2b.png';
+      break;
+    case 3:
+      infoImg.src = './media/pictures/i3.png';
+      break;
+    case 4:
+      infoImg.src = './media/pictures/i4.png'; // fallback-bild
+      break;
+  }
 
   overlay.appendChild(infoImg);
   document.body.appendChild(overlay);
