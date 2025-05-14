@@ -188,14 +188,14 @@ const tweets = [
     ],
     bad: [
       { username: "KattKarin", text: "Era hjärtan är lika kalla som gatan Pia sover på!" },
-      { username: "RäckmackaRolf", text: "Min katt hade varit bättre polis än Malmö poliser" }
+      { username: "RäckmackaRolf", text: "Polisen trampar på de som redan ligger ner. Ni är vidriga." }
     ]
   },
   {
     missionId: 4,
     good: [
       { username: "Johannezswag", text: "Respekt till polisen som gör allt för att stoppa gängkriminaliteten!" },
-      { username: "SurströmmingStefan", text: "Fan va härligt med rediga poliser i samhället" }
+      { username: "SurströmmingStefan", text: "Känns tryggt att veta att ni är där ute och gör ert bästa" }
     ],
     bad: [
       { username: "Johannezswag", text: "Snut = statens slav, inget annat" },
