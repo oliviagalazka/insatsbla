@@ -130,7 +130,6 @@ function showMapPopup() {
   document.body.appendChild(overlay);
 }
 
-
 // function showInfoPopup() {
 //   const overlay = document.createElement('div');
 //   overlay.id = 'info-overlay';
@@ -147,15 +146,34 @@ function showMapPopup() {
 
 //   overlay.addEventListener('click', () => document.body.removeChild(overlay));
 
+//   // Hämta missionId från localStorage
+//   const missionId = parseInt(localStorage.getItem('missionId'), 10);
+
+//   // Sätt bild baserat på missionId
 //   const infoImg = document.createElement('img');
-//   infoImg.src = './media/pictures/i1.png'; // byt till rätt filnamn
 //   infoImg.alt = 'Information';
 //   infoImg.style.maxWidth = '90%';
 //   infoImg.style.maxHeight = '90%';
 
+//   switch (missionId) {
+//     case 1:
+//       infoImg.src = './media/pictures/i1.png';
+//       break;
+//     case 2:
+//       infoImg.src = './media/pictures/i2b.png';
+//       break;
+//     case 3:
+//       infoImg.src = './media/pictures/i3.png';
+//       break;
+//     case 4:
+//       infoImg.src = './media/pictures/i4.png'; // fallback-bild
+//       break;
+//   }
+
 //   overlay.appendChild(infoImg);
 //   document.body.appendChild(overlay);
 // }
+
 
 function showInfoPopup() {
   const overlay = document.createElement('div');
@@ -173,10 +191,9 @@ function showInfoPopup() {
 
   overlay.addEventListener('click', () => document.body.removeChild(overlay));
 
-  // Hämta missionId från localStorage
   const missionId = parseInt(localStorage.getItem('missionId'), 10);
+  const bikeReportStep = localStorage.getItem('bikeReportStep');
 
-  // Sätt bild baserat på missionId
   const infoImg = document.createElement('img');
   infoImg.alt = 'Information';
   infoImg.style.maxWidth = '90%';
@@ -187,13 +204,17 @@ function showInfoPopup() {
       infoImg.src = './media/pictures/i1.png';
       break;
     case 2:
-      infoImg.src = './media/pictures/i2b.png';
+      if (bikeReportStep === 'second') {
+        infoImg.src = './media/pictures/i2b.png';
+      } else {
+        infoImg.src = './media/pictures/i2a.png';
+      }
       break;
     case 3:
       infoImg.src = './media/pictures/i3.png';
       break;
     case 4:
-      infoImg.src = './media/pictures/i4.png'; // fallback-bild
+      infoImg.src = './media/pictures/i4.png';
       break;
   }
 
