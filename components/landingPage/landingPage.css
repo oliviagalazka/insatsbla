@@ -2,8 +2,8 @@
   background-color: var(--darkblue);
   background-image: url('./../../media/pictures/copBackground.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 32px;
+  background-size: contain;
+  background-position: center 64px;
   display: flex;
 }
 

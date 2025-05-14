@@ -76,7 +76,7 @@ const reportContent = [
       },
       {
         question: 'Bar förövaren på något?',
-        correctAnswers: ['påse', 'kasse', 'papperspåse', 'papperskasse', 'systemetpåse', 'systemetkasse', 'systembolagetspåse', 'systembolagetspåse', 'påse från systembolaget', 'kasse från systembolaget', 'en papperskasse', 'en papperspåse']
+        correctAnswers: ['påse', 'en påse', 'kasse', 'papperspåse', 'papperskasse', 'systemetpåse', 'systemetkasse', 'systembolagetpåse', 'systembolagetspåse', 'påse från systembolaget', 'kasse från systembolaget', 'en papperskasse', 'en papperspåse', 'systembolaget påse', 'systembolaget kasse']
       },
       {
         question: 'Vad kastade förövaren ifrån sig?',
