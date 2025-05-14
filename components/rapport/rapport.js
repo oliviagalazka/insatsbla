@@ -134,17 +134,17 @@ function renderReportPage(parentId) {
       stamp.alt = 'Fallet avslutat';
       stamp.className = 'stamp';
       document.body.appendChild(stamp);
-    
+
       setTimeout(() => stamp.classList.add('show'), 5);
     }
 
     if (missionId === 4) {
-            showResultsPopup(results, score);
-          } else {
-            setTimeout(() => {
-              showResultsPopup(results, score);
-            }, 3000);
-          }
+      showResultsPopup(results, score);
+    } else {
+      setTimeout(() => {
+        showResultsPopup(results, score);
+      }, 3000);
+    }
 
     function showResultsPopup(results, score) {
       const overlay = document.createElement('div');
@@ -237,7 +237,7 @@ function renderReportPage(parentId) {
           }));
           if (missionId === 4) {
             renderpersonRegPage('body'); // Visa personregistret först
-          
+
             setTimeout(() => {
               // Spara i localStorage att mission 4 är färdigrapporterad
               let missionsState = JSON.parse(localStorage.getItem('missionsState')) || [];
@@ -249,7 +249,7 @@ function renderReportPage(parentId) {
               }
               localStorage.setItem('missionsState', JSON.stringify(missionsState));
               localStorage.setItem('personregComplete', 'true');
-          
+
               renderLandingPage('body');
             }, 5000); // 10 sekunder
           } else if (missionId === 3) {
@@ -257,7 +257,7 @@ function renderReportPage(parentId) {
           } else {
             renderNewsPage('body');
           }
-          
+
         }
       });
 
@@ -276,22 +276,43 @@ function renderReportPage(parentId) {
 }
 
 
+// function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
+//   let html = '';
+
+//   mission.questions.forEach((q, i) => {
+//     // Visa frågan om den inte har en flagga ELLER om vi är i andra steget
+//     if (!q.visibleIfSecondStep || isSecondStep) {
+//       const value = previousAnswers[i] || '';
+//       html += `<div class="inputDiv">
+//         <p>${q.question}</p>
+//         <input type="text" required value="${value}">
+//       </div>`;
+//     }
+//   });
+
+//   return html;
+// }
+
 function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
   let html = '';
+  const visibleQuestions = mission.questions.filter(q => !q.visibleIfSecondStep || isSecondStep);
 
-  mission.questions.forEach((q, i) => {
-    // Visa frågan om den inte har en flagga ELLER om vi är i andra steget
-    if (!q.visibleIfSecondStep || isSecondStep) {
-      const value = previousAnswers[i] || '';
-      html += `<div class="inputDiv">
-        <p>${q.question}</p>
-        <input type="text" required value="${value}">
-      </div>`;
-    }
+  visibleQuestions.forEach((q, i) => {
+    const value = previousAnswers[i] || '';
+    const isLast = i === visibleQuestions.length - 1;
+
+    // Om andra steget i cykelstölden och detta inte är sista fältet → readonly
+    const readonlyAttr = (isSecondStep && !isLast) ? 'readonly' : '';
+
+    html += `<div class="inputDiv">
+      <p>${q.question}</p>
+      <input type="text" required value="${value}" ${readonlyAttr}>
+    </div>`;
   });
 
   return html;
 }
+
 
 
 
