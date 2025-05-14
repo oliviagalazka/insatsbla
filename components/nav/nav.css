@@ -39,17 +39,10 @@
 
 .nav-left {
   justify-content: flex-start;
-  gap: 8px;
 }
 
 .nav-right {
   justify-content: flex-end;
-}
-
-#info-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* .nav-center {
@@ -79,8 +72,8 @@
 }
 
 #map-icon {
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
 }
 
