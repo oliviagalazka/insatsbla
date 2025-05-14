@@ -64,23 +64,23 @@ const reportContent = [
     questions: [
       {
         question: 'Vad har förövaren för något på huvudet?',
-        correctAnswers: ['hatt', 'cowboyhatt', 'brun hatt', 'en brun hatt', 'foodora', 'brun foodora', 'fodora', 'brun fodora', 'fedora', 'brun fedora', 'en hatt']
+        correctAnswers: ['en hatt', 'hatt', 'cowboyhatt', 'brun hatt', 'en brun hatt', 'foodora', 'brun foodora', 'fodora', 'brun fodora', 'fedora', 'brun fedora']
       },
       {
         question: 'Vilken färg hade jackan?',
-        correctAnswers: ['brun', 'beige']
+        correctAnswers: ['brun', 'beige', 'brun jacka', 'en brun jacka', 'mörkbrun', 'mörkbrun jacka', 'en mörkbrun jacka']
       },
       {
         question: 'Kommer du ihåg vilken färg förövarens byxor var?',
-        correctAnswers: ['blå', 'ljusblå', 'jeansblå']
+        correctAnswers: ['blå', 'ljusblå', 'jeansblå', 'blåa', 'ljusblåa', 'jeansblåa']
       },
       {
         question: 'Bar förövaren på något?',
-        correctAnswers: ['påse', 'en påse', 'kasse', 'papperspåse', 'papperskasse', 'systemetpåse', 'systemetkasse', 'systembolagetpåse', 'systembolagetspåse', 'påse från systembolaget', 'kasse från systembolaget', 'en papperskasse', 'en papperspåse', 'systembolaget påse', 'systembolaget kasse']
+        correctAnswers: ['en påse', 'påse', 'en påse', 'kasse', 'papperspåse', 'papperskasse', 'systemetpåse', 'systemetkasse', 'systembolagetpåse', 'systembolagetspåse', 'påse från systembolaget', 'kasse från systembolaget', 'en papperskasse', 'en papperspåse', 'systembolaget påse', 'systembolaget kasse']
       },
       {
         question: 'Vad kastade förövaren ifrån sig?',
-        correctAnswers: ['cykellås', 'ett cykellås', 'cykel lås', 'ett cykel lås',]
+        correctAnswers: ['cykellås', 'ett cykellås', 'cykel lås', 'lås', 'ett cykel lås',]
       },
       {
         question: 'Vad är cykelns koordinater?',
