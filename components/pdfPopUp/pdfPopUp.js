@@ -18,8 +18,14 @@ function renderpdfPopUp(parent) {
       ${passed ? `
         <div class="buttonDiv">
           <button class="pdfDownload"><span>Ladda ned certifikat</span></button>
-        </div>` : ''}
+
+        </div>
+
+        ` 
+        
+        : ''}
     </div>
+                      <button class="quitGame">Avsluta spelet</button>
   `;
 
   // Lägg till nedladdningsfunktion om godkänt
@@ -34,4 +40,23 @@ function renderpdfPopUp(parent) {
       document.body.removeChild(link);
     });
   }
+  // Event för "Avsluta spelet"-knappen
+  const quitButton = wrapper.querySelector(".quitGame");
+  if (quitButton) {
+    quitButton.addEventListener("click", () => {
+      localStorage.clear(); // Rensa all data
+
+          // Återställ missions från original
+    missions.length = 0; // töm arrayen
+    originalMissions.forEach(m => missions.push({ ...m }));
+
+    // Spara tillbaka till localStorage
+    localStorage.setItem('missionsState', JSON.stringify(missions));
+    localStorage.setItem('missions', JSON.stringify(missions));
+
+      renderStartGamePage('body'); // Gå tillbaka till startsidan
+    });
+  }
+
+
 }
