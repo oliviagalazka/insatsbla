@@ -139,51 +139,6 @@ function showMapPopup() {
   document.body.appendChild(overlay);
 }
 
-// function showInfoPopup() {
-//   const overlay = document.createElement('div');
-//   overlay.id = 'info-overlay';
-//   overlay.style.position = 'fixed';
-//   overlay.style.top = 0;
-//   overlay.style.left = 0;
-//   overlay.style.width = '100vw';
-//   overlay.style.height = '100vh';
-//   overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
-//   overlay.style.display = 'flex';
-//   overlay.style.alignItems = 'center';
-//   overlay.style.justifyContent = 'center';
-//   overlay.style.zIndex = 1000;
-
-//   overlay.addEventListener('click', () => document.body.removeChild(overlay));
-
-//   // Hämta missionId från localStorage
-//   const missionId = parseInt(localStorage.getItem('missionId'), 10);
-
-//   // Sätt bild baserat på missionId
-//   const infoImg = document.createElement('img');
-//   infoImg.alt = 'Information';
-//   infoImg.style.maxWidth = '90%';
-//   infoImg.style.maxHeight = '90%';
-
-//   switch (missionId) {
-//     case 1:
-//       infoImg.src = './media/pictures/i1.png';
-//       break;
-//     case 2:
-//       infoImg.src = './media/pictures/i2b.png';
-//       break;
-//     case 3:
-//       infoImg.src = './media/pictures/i3.png';
-//       break;
-//     case 4:
-//       infoImg.src = './media/pictures/i4.png'; // fallback-bild
-//       break;
-//   }
-
-//   overlay.appendChild(infoImg);
-//   document.body.appendChild(overlay);
-// }
-
-
 function showInfoPopup() {
   const overlay = document.createElement('div');
   overlay.id = 'info-overlay';

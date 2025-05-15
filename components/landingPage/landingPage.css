@@ -12,13 +12,11 @@
   padding: 0;
 }
 
-/* Wrapper */
 #wrapper-landingpage {
   width: 100%;
   margin: 16px;
 }
 
-/* h1, h2, p */
 #wrapper-landingpage h1,
 #wrapper-landingpage h2,
 #wrapper-landingpage p {
@@ -46,11 +44,9 @@
   font-family: "hn-regular";
 }
 
-/* Buttons */
 .mission-button {
   background-color: #1D466C;
   background: linear-gradient(90deg, var(--lightblue) 0%, #0B4883 100%);
-  /*background: linear-gradient(90deg, rgba(38, 95, 149, 1) 0%, rgba(29, 70, 108, 1) 100%);*/
   padding: 16px;
   margin-bottom: 16px;
   border-radius: 4px;
@@ -63,7 +59,6 @@
 
 .locked {
   background: linear-gradient(90deg, RGBA(52, 100, 141, 0.7) 0%, #0B4883 100%);
-  /*background: RGBA(29, 70, 106, 0.7);*/
 }
 
 .mission-button p {
@@ -84,10 +79,6 @@ svg {
   margin: 0;
   padding: 0;
 }
-
-/* .unlocked svg {
-  display: none;
-} */
 
 .locked-popup {
   position: fixed;
