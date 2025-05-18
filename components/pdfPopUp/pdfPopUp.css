@@ -6,22 +6,22 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  background-color:#F0F0F0;
+  background-color: #F0F0F0;
 }
 
-.pdfPopUp h1{
-  font-family:helvetica;
-  font-size:20px;
-  text-align:center;
-  margin-bottom:16px;
-}
-
-.pdfPopUp p{
+.pdfPopUp h1 {
   font-family: helvetica;
-  font-size:12px;
-  line-height:130%;
-  letter-spacing:0.12%;
-  margin-bottom:32px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.pdfPopUp p {
+  font-family: helvetica;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.12%;
+  margin-bottom: 32px;
 
 }
 
@@ -29,13 +29,13 @@
   font-family: Helvetica, sans-serif;
   font-size: 14px;
   border: none;
-  color:black;
-  padding: 12px 20px;
+  color: black;
+  padding: 12px 24px;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  position:relative;
-  overflow:hidden;
+  position: relative;
+  overflow: hidden;
 
   background: linear-gradient(120deg, #d4af37, #b88a2f, #d4af37);
   background-size: 300% 300%;
@@ -49,9 +49,9 @@
   width: 150%;
   height: 100%;
   background: linear-gradient(120deg,
-          rgba(255, 255, 255, 0) 20%,
-          rgba(255, 255, 255, 0.3) 50%,
-          rgba(255, 255, 255, 0) 80%);
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 80%);
   transform: skewX(-20deg);
   animation: shimmer 3s linear infinite;
   pointer-events: none;
@@ -59,38 +59,38 @@
 
 @keyframes shimmer {
   0% {
-      left: -150%;
+    left: -150%;
   }
 
   100% {
-      left: 150%;
+    left: 150%;
   }
 }
 
-.buttonDiv{
-  display:flex;
-  justify-content:center;
-  flex-direction:column;
-  gap:32px;
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.quitGame{
-  
-    position: fixed;    
-    bottom: 40px;          
-    left: 50%;             
-    transform: translateX(-50%);
-    width:305px;
-    
+.quitGame {
 
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    font-family: Helvetica, sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #1D466C;
-    background: linear-gradient(90deg, var(--lightblue) 0%, #0B4883 100%);
-    color:white;
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 305px;
+
+
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #1D466C;
+  background: linear-gradient(90deg, var(--lightblue) 0%, #0B4883 100%);
+  color: white;
 
 }
