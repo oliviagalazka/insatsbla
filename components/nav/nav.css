@@ -7,7 +7,7 @@
 
 .nav-left {
   justify-content: flex-start;
-  gap: 8px;
+  gap: 10px;
 }
 
 .nav-right {
@@ -38,9 +38,10 @@
 }
 
 #map-icon {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  bottom: 2px;
 }
 
 #mission-timer {
@@ -89,8 +90,13 @@
   font-size: 16px;
 
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 8px;
+}
+
+#mission-timer svg {
+  position: relative;
+  bottom: 2px;
 }
 
 #back-to-intro-btn svg {
