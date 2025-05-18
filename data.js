@@ -63,11 +63,11 @@ const reportContent = [
     mission: '2. Cykelstölden',
     questions: [
       {
-        question: 'Vad har förövaren för något på huvudet?',
-        correctAnswers: ['en hatt', 'hatt', 'cowboyhatt', 'brun hatt', 'en brun hatt', 'foodora', 'brun foodora', 'fodora', 'brun fodora', 'fedora', 'brun fedora']
+        question: 'Vad hade förövaren för något på huvudet?',
+        correctAnswers: ['En hatt', 'hatt', 'cowboyhatt', 'brun hatt', 'en brun hatt', 'foodora', 'brun foodora', 'fodora', 'brun fodora', 'fedora', 'brun fedora']
       },
       {
-        question: 'Vilken färg hade jackan?',
+        question: 'Vilken färg hade förövarens jacka?',
         correctAnswers: ['brun', 'beige', 'brun jacka', 'en brun jacka', 'mörkbrun', 'mörkbrun jacka', 'en mörkbrun jacka']
       },
       {
@@ -75,7 +75,7 @@ const reportContent = [
         correctAnswers: ['blå', 'ljusblå', 'jeansblå', 'blåa', 'ljusblåa', 'jeansblåa']
       },
       {
-        question: 'Bar förövaren på något?',
+        question: 'Vad bar förövaren på?',
         correctAnswers: ['en påse', 'påse', 'en påse', 'kasse', 'papperspåse', 'papperskasse', 'systemetpåse', 'systemetkasse', 'systembolagetpåse', 'systembolagetspåse', 'påse från systembolaget', 'kasse från systembolaget', 'en papperskasse', 'en papperspåse', 'systembolaget påse', 'systembolaget kasse']
       },
       {
