@@ -1,3 +1,44 @@
+// if (!localStorage.getItem('missions')) {
+//     localStorage.setItem('missions', JSON.stringify(missions));
+// }
+
+// window.addEventListener('DOMContentLoaded', () => {
+//     const currentView = localStorage.getItem('currentView');
+//     const missionId = parseInt(localStorage.getItem('currentMissionId'), 10);
+//     const mission = missions.find(m => m.missionId === missionId);
+
+//     if (currentView === 'intro') {
+//         renderIntroVideoPage('body');
+//     } else if (currentView === 'landing') {
+//         renderLandingPage('body');
+//     } else if (currentView === 'radio' && mission) {
+//         renderRadioPage('body', mission);
+//     } else if (currentView === 'report' && mission) {
+//         renderReportPage('body');
+//     } else if (currentView === 'news') {
+//         renderNewsPage('body');
+//     } else {
+//         renderStartGamePage('body');
+//     }
+// });
+
+// function resumeLastView() {
+//     const view = localStorage.getItem('currentView');
+//     const missionId = parseInt(localStorage.getItem('currentMissionId'), 10);
+
+//     if (view === 'radio' && missionId) {
+//         const mission = missions.find(m => m.missionId === missionId);
+//         if (mission) {
+//             renderRadioPage('body', mission);
+//         }
+//     } else {
+//         renderLandingPage('body'); // fallback
+//     }
+// }
+
+// // Kör detta direkt vid sidladdning:
+// resumeLastView();
+
 if (!localStorage.getItem('missions')) {
     localStorage.setItem('missions', JSON.stringify(missions));
 }
@@ -7,7 +48,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const missionId = parseInt(localStorage.getItem('currentMissionId'), 10);
     const mission = missions.find(m => m.missionId === missionId);
 
-    if (currentView === 'intro') {
+    if (!currentView) {
+        // Första gången: visa startsidan
+        renderStartGamePage('body');
+    } else if (currentView === 'intro') {
         renderIntroVideoPage('body');
     } else if (currentView === 'landing') {
         renderLandingPage('body');
@@ -18,27 +62,10 @@ window.addEventListener('DOMContentLoaded', () => {
     } else if (currentView === 'news') {
         renderNewsPage('body');
     } else {
+        // Om något går fel, börja om från start
         renderStartGamePage('body');
     }
 });
-
-function resumeLastView() {
-    const view = localStorage.getItem('currentView');
-    const missionId = parseInt(localStorage.getItem('currentMissionId'), 10);
-
-    if (view === 'radio' && missionId) {
-        const mission = missions.find(m => m.missionId === missionId);
-        if (mission) {
-            renderRadioPage('body', mission);
-        }
-    } else {
-        renderLandingPage('body'); // fallback
-    }
-}
-
-// Kör detta direkt vid sidladdning:
-resumeLastView();
-
 
 
 // function navigateTo(view, missionId = null) {
