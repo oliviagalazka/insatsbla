@@ -55,7 +55,7 @@ function renderReportPage(parentId) {
       <img src="./media/pictures/rapportImg.png" alt="Polisens emblem">
       <div class="rapportText">
         <h1>${missionId === 4 ? 'Polisens databas' : 'Insatsrapport'}</h1>
-        <p>Aspirantgrupp: Insats blå</p>
+        <p>Aspirantgrupp: Insats Blå</p>
         <p>Datum: ${showTodaysDate()}</p>
       </div>
     </div>

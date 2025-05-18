@@ -94,7 +94,7 @@ body {
 #closePopup {
     position: relative;
     overflow: hidden;
-    padding: 12px 16px;
+    padding: 12px 24px;
     font-family: 'hn-bold';
     font-size: 14px;
     background-color: #5594ED;
@@ -139,10 +139,10 @@ body {
 }
 */
 
-.correct {
+.correct p:last-child {
     color: #138636;
 }
 
-.incorrect {
+.incorrect p:last-child {
     color: #EF0F0F;
 }

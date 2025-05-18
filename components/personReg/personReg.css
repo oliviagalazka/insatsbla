@@ -1,60 +1,59 @@
-p{
-  font-family:helvetica;
-  font-size:12px;
+.regPage p {
+  font-family: helvetica;
+  font-size: 12px;
 }
 
-.regPageH1{
-  font-family:helvetica;
-  font-size:20px;
-  letter-spacing:2px;
+.regPageH1 {
+  font-family: helvetica;
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 
-.img1{
-  width:80px;
-  height:100%;
-  text-align:center;
-  margin-bottom:4px;
+.img1 {
+  width: 80px;
+  height: 100%;
+  text-align: center;
+  margin-bottom: 4px;
 }
 
-.img1Container{
-  display:flex;
+.img1Container {
+  display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   flex-direction: column;
-  margin-bottom:16px;
+  margin-bottom: 16px;
 }
 
-.personInfo{
-  display:flex;
-  justify-content:space-evenly;
+.personInfo {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.img2{
-  width:150px;
-  height:100%;
+.img2 {
+  width: 150px;
+  height: 100%;
 }
 
-.personInfoTxt{
-  display:flex;
-  flex-direction:column;
+.personInfoTxt {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .personInfoBox {
   border-bottom: dotted 2px black;
-  display:flex;
-  justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.polisInfo{
-  padding:8px;
+.polisInfo {
+  padding: 8px;
 }
 
-.polisInfo p{
-  margin:4px;
+.polisInfo p {
+  margin: 4px;
 }
 
-b{
-  margin-right:8px;
+.regPageb {
+  margin-right: 8px;
 }
-

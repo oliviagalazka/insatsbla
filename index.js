@@ -65,6 +65,8 @@ window.addEventListener('DOMContentLoaded', () => {
         // Om något går fel, börja om från start
         renderStartGamePage('body');
     }
+
+    window.scrollTo(0, 0);
 });
 
 
