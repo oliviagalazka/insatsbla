@@ -56,7 +56,6 @@
   border-bottom: 1px solid var(--lightblue);
   margin-bottom: 24px;
   padding: 16px 0 24px 0;
-  /* Lite luft i nav-baren */
   position: relative;
   height: 30px;
 }
@@ -68,21 +67,15 @@
   display: flex;
   gap: 4px;
   align-items: baseline;
-  /* Viktigt: text på samma rad */
 }
 
-/* Logotyperna ska ha samma höjd, justera så här: */
 #logo-thin,
 #logo-bold {
   font-size: 16px;
-  /* och "hn-bold" för bold så klart */
   color: white;
   line-height: 1;
-  /* Förhindra att text hoppar */
   padding: 0;
-  /* Ingen onödig padding */
   margin: 0;
-  /* Ta bort standardmarginaler */
 }
 
 #mission-timer {
