@@ -276,24 +276,6 @@ function renderReportPage(parentId) {
 
 }
 
-
-// function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
-//   let html = '';
-
-//   mission.questions.forEach((q, i) => {
-//     // Visa frågan om den inte har en flagga ELLER om vi är i andra steget
-//     if (!q.visibleIfSecondStep || isSecondStep) {
-//       const value = previousAnswers[i] || '';
-//       html += `<div class="inputDiv">
-//         <p>${q.question}</p>
-//         <input type="text" required value="${value}">
-//       </div>`;
-//     }
-//   });
-
-//   return html;
-// }
-
 function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
   let html = '';
   const visibleQuestions = mission.questions.filter(q => !q.visibleIfSecondStep || isSecondStep);
@@ -313,7 +295,3 @@ function renderInputs(mission, previousAnswers = [], isSecondStep = false) {
 
   return html;
 }
-
-
-
-
